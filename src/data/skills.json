@@ -1,0 +1,17 @@
+{
+  "technical": [
+    { "name": "JavaScript (ES6+)", "level": 95 },
+    { "name": "Vue.js", "level": 90 },
+    { "name": "Node.js", "level": 85 },
+    { "name": "Python", "level": 80 },
+    { "name": "SQL & NoSQL Databases", "level": 75 },
+    { "name": "Docker & Kubernetes", "level": 70 },
+    { "name": "AWS", "level": 65 }
+  ],
+  "soft": [
+    "Problem Solving",
+    "Team Leadership",
+    "Communication",
+    "Agile Methodologies"
+  ]
+}

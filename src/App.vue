@@ -1,30 +1,164 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref, onMounted, watch } from "vue";
+import ProfileCard from "./components/ProfileCard.vue";
+import ExperienceSection from "./components/ExperienceSection.vue";
+import EducationSection from "./components/EducationSection.vue";
+import SkillsSection from "./components/SkillsSection.vue";
+import PersonalStatement from "./components/PersonalStatement.vue";
+
+const profile = ref({});
+const experiences = ref([]);
+const education = ref([]);
+const skills = ref({});
+const personalStatement = ref("");
+const isLoading = ref(true);
+
+async function fetchData() {
+  isLoading.value = true;
+  try {
+    const [
+      profileRes,
+      experienceRes,
+      educationRes,
+      skillsRes,
+      personalStatementRes,
+    ] = await Promise.all([
+      fetch("/src/data/profile.json"),
+      fetch("/src/data/experience.json"),
+      fetch("/src/data/education.json"),
+      fetch("/src/data/skills.json"),
+      fetch("/src/data/personal_statement.md"),
+    ]);
+
+    profile.value = await profileRes.json();
+    experiences.value = await experienceRes.json();
+    education.value = await educationRes.json();
+    skills.value = await skillsRes.json();
+    personalStatement.value = await personalStatementRes.text();
+  } catch (error) {
+    console.error("Error fetching CV data:", error);
+    // Optionally, set some error state here to display to the user
+  } finally {
+    isLoading.value = false;
+  }
+}
+
+watch(
+  profile,
+  (newProfile) => {
+    if (newProfile && newProfile.name) {
+      document.title = `Live CV - ${newProfile.name}`;
+    }
+  },
+  { immediate: true }
+);
+
+onMounted(() => {
+  fetchData();
+});
+
+function downloadPdf() {
+  alert(
+    "PDF download functionality will be implemented using a library like jsPDF or a server-side solution."
+  );
+  // Placeholder for PDF generation logic
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div
+    id="app-container"
+    class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 antialiased"
+  >
+    <div v-if="isLoading" class="flex justify-center items-center min-h-screen">
+      <div
+        class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"
+      ></div>
+    </div>
+
+    <div v-else>
+      <header
+        class="text-center pt-8 pb-12 fade-in-up"
+        style="animation-delay: 0.1s"
+      >
+        <img
+          v-if="profile.avatarUrl"
+          :src="profile.avatarUrl"
+          alt="Profile Picture"
+          class="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg"
+        />
+        <h1 class="text-5xl font-bold text-gray-800 mb-2">
+          {{ profile.name }}
+        </h1>
+        <p class="text-2xl text-blue-600 font-light">
+          {{ profile.title }}
+        </p>
+      </header>
+
+      <main class="space-y-12">
+        <ProfileCard
+          :profile="profile"
+          class="cv-section fade-in-up"
+          style="animation-delay: 0.3s"
+        />
+        <PersonalStatement
+          :statement="personalStatement"
+          class="cv-section fade-in-up"
+          style="animation-delay: 0.5s"
+        />
+        <ExperienceSection
+          :experiences="experiences"
+          class="cv-section fade-in-up"
+          style="animation-delay: 0.7s"
+        />
+        <EducationSection
+          :education="education"
+          class="cv-section fade-in-up"
+          style="animation-delay: 0.9s"
+        />
+        <SkillsSection
+          :skills="skills"
+          class="cv-section fade-in-up"
+          style="animation-delay: 1.1s"
+        />
+      </main>
+
+      <footer
+        class="text-center mt-16 py-8 border-t border-gray-200 fade-in-up"
+        style="animation-delay: 1.3s"
+      >
+        <p class="text-gray-500">
+          &copy; {{ new Date().getFullYear() }} {{ profile.name }}. All rights
+          reserved.
+        </p>
+        <button @click="downloadPdf" class="button button-primary mt-6">
+          Download PDF CV
+        </button>
+      </footer>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* Scoped styles for App.vue specific adjustments */
+#app-container {
+  max-width: 900px; /* Slightly narrower for better readability */
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+/* Ensure fade-in-up is applied if not globally available or overridden */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

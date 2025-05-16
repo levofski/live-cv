@@ -1,3 +1,5 @@
+/* Tailwind directives are not needed here as Tailwind is loaded via CDN in index.html */
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,45 +15,78 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  background-color: #f4f7f6; /* Lighter, cleaner background */
+  color: #333;
+  font-family: "Inter", sans-serif; /* Modern sans-serif font */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+a {
+  font-weight: 500;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #2c3e50; /* Dark blue-gray for headings */
+  font-weight: 600; /* Slightly bolder headings */
 }
 
 button {
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
 }
 button:hover {
   border-color: #646cff;
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Card base style */
+.cv-section {
+  background-color: #ffffff;
+  border-radius: 12px; /* Softer rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05); /* Softer shadow */
+  padding: 2rem; /* More padding */
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.cv-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); /* Enhanced shadow on hover */
 }
 
 .card {
@@ -63,7 +98,23 @@ button:focus-visible {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
+  /* display: flex; */ /* Removed as container class in App.vue handles layout */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* padding: 20px; */ /* Padding is handled by container in App.vue */
 }
+
+/* Add some global styles for better visual appeal */
+section {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Removed hover effect for now, can be re-added with more specific component styling if desired */
+/* section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -76,4 +127,36 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Utility for subtle text */
+.text-muted {
+  color: #6c757d; /* Bootstrap's muted color */
+}
+
+/* Animations for sections appearing */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add a bit more spacing to lists */
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
 }

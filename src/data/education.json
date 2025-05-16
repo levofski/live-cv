@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "degree": "Master of Science in Computer Science",
+    "institution": "Stanford University",
+    "period": "2015 - 2017",
+    "location": "Stanford, CA",
+    "details": "Thesis on 'Scalable Machine Learning Algorithms'. Graduated with Honors."
+  },
+  {
+    "id": 2,
+    "degree": "Bachelor of Science in Software Engineering",
+    "institution": "University of Texas at Austin",
+    "period": "2011 - 2015",
+    "location": "Austin, TX",
+    "details": "Focus on web development and database management. Dean's List for 4 semesters."
+  }
+]

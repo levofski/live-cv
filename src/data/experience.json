@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Senior Software Engineer",
+    "company": "Tech Solutions Inc.",
+    "period": "Jan 2020 - Present",
+    "location": "San Francisco, CA",
+    "summary": "Led development of key features for a flagship product, mentored junior engineers, and improved system performance by 20%.",
+    "details": [
+      "Architected and implemented a new microservices-based backend.",
+      "Collaborated with cross-functional teams to define project requirements.",
+      "Introduced CI/CD pipelines, reducing deployment time by 50%.",
+      "Received company award for innovation in Q3 2022."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Software Engineer",
+    "company": "Innovatech Ltd.",
+    "period": "Jun 2017 - Dec 2019",
+    "location": "Austin, TX",
+    "summary": "Developed and maintained web applications using modern JavaScript frameworks. Contributed to a 15% increase in user engagement.",
+    "details": [
+      "Built responsive user interfaces with Vue.js and React.",
+      "Worked in an Agile environment, participating in daily stand-ups and sprint planning.",
+      "Integrated third-party APIs for enhanced functionality.",
+      "Wrote unit and integration tests to ensure code quality."
+    ]
+  }
+]
