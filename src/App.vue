@@ -5,12 +5,14 @@ import ExperienceSection from "./components/ExperienceSection.vue";
 import EducationSection from "./components/EducationSection.vue";
 import SkillsSection from "./components/SkillsSection.vue";
 import PersonalStatement from "./components/PersonalStatement.vue";
+import ProjectsSection from "./components/ProjectsSection.vue"; // Import ProjectsSection
 
 const profile = ref({});
 const experiences = ref([]);
 const education = ref([]);
 const skills = ref({});
 const personalStatement = ref("");
+const projects = ref([]); // Add projects ref
 const isLoading = ref(true);
 
 async function fetchData() {
@@ -22,12 +24,14 @@ async function fetchData() {
       educationRes,
       skillsRes,
       personalStatementRes,
+      projectsRes,
     ] = await Promise.all([
       fetch("/src/data/profile.json"),
       fetch("/src/data/experience.json"),
       fetch("/src/data/education.json"),
       fetch("/src/data/skills.json"),
       fetch("/src/data/personal_statement.md"),
+      fetch("/src/data/projects.json"), // Fetch projects data
     ]);
 
     profile.value = await profileRes.json();
@@ -35,6 +39,7 @@ async function fetchData() {
     education.value = await educationRes.json();
     skills.value = await skillsRes.json();
     personalStatement.value = await personalStatementRes.text();
+    projects.value = await projectsRes.json(); // Assign projects data
   } catch (error) {
     console.error("Error fetching CV data:", error);
     // Optionally, set some error state here to display to the user
@@ -106,26 +111,32 @@ function downloadPdf() {
           class="cv-section fade-in-up"
           style="animation-delay: 0.5s"
         />
+        <ProjectsSection
+          :projects="projects"
+          class="cv-section fade-in-up"
+          style="animation-delay: 0.7s"
+        />
+        <!-- Add ProjectsSection -->
         <ExperienceSection
           :experiences="experiences"
           class="cv-section fade-in-up"
-          style="animation-delay: 0.7s"
+          style="animation-delay: 0.9s"
         />
         <EducationSection
           :education="education"
           class="cv-section fade-in-up"
-          style="animation-delay: 0.9s"
+          style="animation-delay: 1.1s"
         />
         <SkillsSection
           :skills="skills"
           class="cv-section fade-in-up"
-          style="animation-delay: 1.1s"
+          style="animation-delay: 1.3s"
         />
       </main>
 
       <footer
         class="text-center mt-16 py-8 border-t border-gray-200 fade-in-up"
-        style="animation-delay: 1.3s"
+        style="animation-delay: 1.5s"
       >
         <p class="text-gray-500">
           &copy; {{ new Date().getFullYear() }} {{ profile.name }}. All rights

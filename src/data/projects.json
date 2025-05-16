@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Interactive Data Visualization Dashboard",
+    "period": "2023",
+    "technologies": ["Vue.js", "D3.js", "Node.js", "MongoDB"],
+    "summary": "Developed a dynamic dashboard for visualizing complex datasets, enabling users to explore trends and patterns through interactive charts and graphs.",
+    "details": [
+      "Led the front-end development using Vue.js, creating reusable components for charts and UI elements.",
+      "Integrated D3.js for sophisticated and custom data visualizations.",
+      "Built a Node.js backend with Express.js to serve data from a MongoDB database.",
+      "Implemented real-time data updates using WebSockets.",
+      "Achieved a 30% improvement in data analysis efficiency for the client."
+    ],
+    "imageUrl": "https://via.placeholder.com/400x250/4A90E2/FFFFFF?Text=Project+Alpha",
+    "liveUrl": "#",
+    "sourceUrl": "https://github.com/johndoe/project-alpha"
+  },
+  {
+    "id": 2,
+    "name": "E-commerce Platform Enhancement",
+    "period": "2022 - 2023",
+    "technologies": ["React", "Redux", "GraphQL", "PostgreSQL"],
+    "summary": "Revamped the user interface and improved the performance of an existing e-commerce platform, resulting in increased user engagement and sales.",
+    "details": [
+      "Migrated legacy UI components to React and Redux for better state management and performance.",
+      "Designed and implemented a GraphQL API to optimize data fetching.",
+      "Improved page load times by 40% through code optimization and lazy loading techniques.",
+      "Collaborated with UX designers to create a more intuitive and user-friendly shopping experience."
+    ],
+    "imageUrl": "https://via.placeholder.com/400x250/7ED321/FFFFFF?Text=Project+Beta",
+    "liveUrl": "#",
+    "sourceUrl": "https://github.com/johndoe/project-beta"
+  },
+  {
+    "id": 3,
+    "name": "Mobile-First Social Networking App",
+    "period": "2021",
+    "technologies": ["Flutter", "Firebase", "Dart"],
+    "summary": "Designed and developed a cross-platform social networking application with a focus on mobile-first usability and real-time interactions.",
+    "details": [
+      "Utilized Flutter and Dart to build a high-performance, natively compiled application for both iOS and Android.",
+      "Leveraged Firebase for backend services including authentication, real-time database, and cloud functions.",
+      "Implemented features such as user profiles, content sharing, and instant messaging."
+    ],
+    "imageUrl": "https://via.placeholder.com/400x250/F5A623/FFFFFF?Text=Project+Gamma",
+    "liveUrl": null,
+    "sourceUrl": "https://github.com/johndoe/project-gamma"
+  }
+]
