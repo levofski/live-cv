@@ -6,7 +6,7 @@
     ],
     "github.copilot.chat.commitMessageGeneration.instructions": [
         {
-            "file": "docs/commit-message.md"// import instructions from file `commit-message.md`
+            "file": "docs/commit-style.md"// import instructions from file `commit-style.md`
         }
     ]
 }
