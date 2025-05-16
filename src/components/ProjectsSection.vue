@@ -33,7 +33,7 @@ function getTechColor(index) {
       <div
         v-for="project in projects"
         :key="project.id"
-        class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 flex flex-col"
+        class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:scale-105 flex flex-col"
       >
         <img
           v-if="project.imageUrl"
@@ -52,7 +52,7 @@ function getTechColor(index) {
               v-for="(tech, tIndex) in project.technologies"
               :key="tech"
               :class="getTechColor(tIndex)"
-              class="text-xs font-semibold px-2.5 py-0.5 rounded-full"
+              class="text-xs font-semibold px-2.5 py-0.5 rounded-full transition-all duration-200 ease-in-out hover:opacity-80 hover:shadow-md"
             >
               {{ tech }}
             </span>
@@ -107,18 +107,31 @@ function getTechColor(index) {
               @leave="
                 (el, done) => {
                   el.style.height = '0px';
+                  // el.style.opacity = '0'; // Opacity handled by CSS
                   done();
                 }
               "
             >
               <div
                 v-if="expanded[project.id]"
-                class="mb-4 pt-4 border-t border-gray-200"
+                class="project-details-wrapper mb-4 pt-4 border-t border-gray-200"
               >
                 <ul
                   class="list-disc list-inside text-gray-600 space-y-1.5 pl-5 leading-relaxed"
                 >
-                  <li v-for="(detail, index) in project.details" :key="index">
+                  <li
+                    v-for="(detail, index) in project.details"
+                    :key="index"
+                    class="transition-all duration-300 ease-in-out"
+                    :style="{
+                      transform: expanded[project.id]
+                        ? 'translateX(0)'
+                        : 'translateX(-20px)',
+                      opacity: expanded[project.id] ? 1 : 0,
+                      transitionDelay:
+                        (expanded[project.id] ? index * 50 : 0) + 'ms',
+                    }"
+                  >
                     {{ detail }}
                   </li>
                 </ul>
@@ -181,7 +194,7 @@ function getTechColor(index) {
 <style scoped>
 .expand-enter-active,
 .expand-leave-active {
-  transition: height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  transition: height 0.4s ease-in-out, opacity 0.3s ease-in-out 0.1s; /* Added delay for opacity */
   overflow: hidden;
 }
 
@@ -190,6 +203,11 @@ function getTechColor(index) {
   height: 0;
   opacity: 0;
 }
+
+/* New styles for individual list item animations */
+/* .project-details-wrapper ul removed as it was empty */
+
+/* .project-details-wrapper li is now styled inline for dynamic delays */
 
 .text-blue-600 {
   color: #2563eb; /* Tailwind's blue-600 */
