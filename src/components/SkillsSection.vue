@@ -1,9 +1,12 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref, onMounted, onUnmounted } from "vue";
 
 const props = defineProps({
   skills: Object,
 });
+
+const technicalSkillsContainerRef = ref(null); // Ref for the technical skills container
+const animatedSkillBars = ref(new Set()); // To track which skill bars have been animated
 
 function getSkillLevelClass(level) {
   if (level >= 90) return "bg-green-500"; // Vibrant Green
@@ -11,6 +14,41 @@ function getSkillLevelClass(level) {
   if (level >= 60) return "bg-yellow-400"; // Bright Yellow
   return "bg-red-400"; // Softer Red
 }
+
+let intersectionObserver = null;
+
+onMounted(() => {
+  const options = {
+    root: null, // observing intersections relative to the viewport
+    rootMargin: "0px",
+    threshold: 0.3, // Trigger when 30% of the technical skills container is visible
+  };
+
+  intersectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // When the container is visible, trigger animation for all technical skills
+        props.skills.technical.forEach((skill) => {
+          animatedSkillBars.value.add(skill.name);
+        });
+        // Optional: Unobserve after the first animation if you only want it to happen once
+        // if (technicalSkillsContainerRef.value) {
+        //   intersectionObserver.unobserve(technicalSkillsContainerRef.value);
+        // }
+      }
+    });
+  }, options);
+
+  if (technicalSkillsContainerRef.value) {
+    intersectionObserver.observe(technicalSkillsContainerRef.value);
+  }
+});
+
+onUnmounted(() => {
+  if (intersectionObserver && technicalSkillsContainerRef.value) {
+    intersectionObserver.unobserve(technicalSkillsContainerRef.value);
+  }
+});
 </script>
 
 <template>
@@ -19,8 +57,23 @@ function getSkillLevelClass(level) {
       Skills
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-      <div>
-        <h3 class="text-xl font-semibold text-gray-700 mb-6">
+      <div ref="technicalSkillsContainerRef">
+        <!-- Attach ref to the container of technical skills -->
+        <h3 class="text-xl font-semibold text-gray-700 mb-6 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2 text-blue-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+            />
+          </svg>
           Technical Skills
         </h3>
         <div class="space-y-5">
@@ -33,18 +86,40 @@ function getSkillLevelClass(level) {
                 >{{ skill.level }}%</span
               >
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-3 shadow-inner">
+            <div
+              class="w-full bg-gray-200 rounded-full h-3 shadow-inner overflow-hidden"
+            >
               <div
                 :class="getSkillLevelClass(skill.level)"
-                class="h-3 rounded-full transition-all duration-500 ease-out"
-                :style="{ width: skill.level + '%' }"
+                class="h-3 rounded-full transition-all duration-1000 ease-out"
+                :style="{
+                  width: animatedSkillBars.has(skill.name)
+                    ? skill.level + '%'
+                    : '0%',
+                }"
               ></div>
             </div>
           </div>
         </div>
       </div>
       <div>
-        <h3 class="text-xl font-semibold text-gray-700 mb-6">Soft Skills</h3>
+        <h3 class="text-xl font-semibold text-gray-700 mb-6 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2 text-green-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+            />
+          </svg>
+          Soft Skills
+        </h3>
         <ul class="space-y-3">
           <li
             v-for="skill in skills.soft"

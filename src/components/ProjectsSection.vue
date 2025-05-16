@@ -130,16 +130,44 @@ function getTechColor(index) {
                 v-if="project.liveUrl && project.liveUrl !== '#'"
                 :href="project.liveUrl"
                 target="_blank"
-                class="button button-primary text-sm py-2 px-4 flex-1 text-center"
+                class="button button-primary text-sm py-2 px-4 flex-1 flex items-center justify-center"
               >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
                 View Live
               </a>
               <a
                 v-if="project.sourceUrl"
                 :href="project.sourceUrl"
                 target="_blank"
-                class="button button-secondary text-sm py-2 px-4 flex-1 text-center"
+                class="button button-secondary text-sm py-2 px-4 flex-1 flex items-center justify-center"
               >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M10 20l4-16m4 4l-4 4m0 0l-4 4m4-4H6"
+                  />
+                </svg>
                 Source Code
               </a>
             </div>
