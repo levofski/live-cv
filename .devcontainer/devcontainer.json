@@ -21,9 +21,9 @@
       ]
     }
   },
-  "forwardPorts": [5173],
+  "forwardPorts": [3000],
   "portsAttributes": {
-    "5173": {
+    "3000": {
       "label": "Vite Dev Server",
       "onAutoForward": "openBrowser"
     }
