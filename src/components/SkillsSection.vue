@@ -8,11 +8,21 @@ const props = defineProps({
 const technicalSkillsContainerRef = ref(null); // Ref for the technical skills container
 const animatedSkillBars = ref(new Set()); // To track which skill bars have been animated
 
-function getSkillLevelClass(level) {
-  if (level >= 90) return "bg-green-500"; // Vibrant Green
-  if (level >= 75) return "bg-blue-500"; // Strong Blue
-  if (level >= 60) return "bg-yellow-400"; // Bright Yellow
-  return "bg-red-400"; // Softer Red
+function getSkillLevelAttributes(level) {
+  switch (level) {
+    case "Expert":
+      return { width: "95%", class: "bg-green-500" }; // Vibrant Green
+    case "Advanced":
+      return { width: "80%", class: "bg-blue-500" }; // Strong Blue
+    case "Proficient":
+      return { width: "65%", class: "bg-yellow-400" }; // Bright Yellow
+    case "Intermediate":
+      return { width: "50%", class: "bg-orange-400" }; // Orange
+    case "Beginner":
+      return { width: "30%", class: "bg-red-400" }; // Softer Red
+    default:
+      return { width: "0%", class: "bg-gray-300" };
+  }
 }
 
 let intersectionObserver = null;
@@ -82,19 +92,19 @@ onUnmounted(() => {
               <span class="text-base font-medium text-gray-700">{{
                 skill.name
               }}</span>
-              <span class="text-sm font-medium text-blue-600"
-                >{{ skill.level }}%</span
-              >
+              <span class="text-sm font-medium text-blue-600">{{
+                skill.level
+              }}</span>
             </div>
             <div
               class="w-full bg-gray-200 rounded-full h-3 shadow-inner overflow-hidden"
             >
               <div
-                :class="getSkillLevelClass(skill.level)"
+                :class="getSkillLevelAttributes(skill.level).class"
                 class="h-3 rounded-full transition-all duration-1000 ease-out"
                 :style="{
                   width: animatedSkillBars.has(skill.name)
-                    ? skill.level + '%'
+                    ? getSkillLevelAttributes(skill.level).width
                     : '0%',
                 }"
               ></div>
