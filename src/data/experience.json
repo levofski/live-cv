@@ -18,6 +18,50 @@
       "Interviewed and tested prospective engineers and DevOps.",
       "Liaised with PHP London organisers to host the meetup in LendInvest offices.",
       "Skills Used: Object Oriented Programming in PHP, Symfony 5.4, 6.4 and some NodeJS and Golang; TDD/BDD and automated testing with PHPUnit, Behat, Jest and Gotest; Domain Driven Design & Microservices Architecture patterns; Lean/Agile methodologies; Some crossover into DevOps, using Docker, Kubernetes, Kind, AWS; Made use of AI and Agent coding where appropriate."
+    ],
+    "projects": [
+      {
+        "id": "lendinvest-project-dev-stack",
+        "name": "Dev Stack",
+        "description": "Improvements to the development stack.",
+        "technologies": []
+      },
+      {
+        "id": "lendinvest-project-datadog",
+        "name": "Datadog integration",
+        "description": "Integration with Datadog for monitoring.",
+        "technologies": []
+      },
+      {
+        "id": "lendinvest-project-mysql-upgrade",
+        "name": "MySQL 8 upgrade",
+        "description": "Upgrade of MySQL database to version 8.",
+        "technologies": []
+      },
+      {
+        "id": "lendinvest-project-ai-affordability",
+        "name": "AI Generated Affordability Summary",
+        "description": "AI-powered generation of affordability summaries.",
+        "technologies": ["AI"]
+      },
+      {
+        "id": "lendinvest-project-ai-rationale",
+        "name": "AI Generated Underwriter Rationale",
+        "description": "AI-powered generation of underwriter rationale.",
+        "technologies": ["AI"]
+      },
+      {
+        "id": "lendinvest-project-security-dashboard",
+        "name": "Security Dashboard (Agent Coded)",
+        "description": "Development of a security dashboard using agent coding.",
+        "technologies": ["Agent Coding"]
+      },
+      {
+        "id": "lendinvest-project-data-engineering",
+        "name": "Cross-skilled to cover Data Engineering",
+        "description": "Expanded skillset to include data engineering tasks.",
+        "technologies": ["Data Engineering"]
+      }
     ]
   },
   {

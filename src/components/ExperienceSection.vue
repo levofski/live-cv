@@ -87,6 +87,31 @@ function toggleExpand(id) {
               {{ detail }}
             </li>
           </ul>
+
+          <div
+            v-if="exp.projects && exp.projects.length"
+            class="mt-4 pt-4 border-t border-gray-100"
+          >
+            <h4 class="text-md font-semibold text-gray-700 mb-2">
+              Notable Projects:
+            </h4>
+            <ul class="list-disc pl-5 space-y-2">
+              <li
+                v-for="project in exp.projects"
+                :key="project.id"
+                class="text-gray-600"
+              >
+                <strong class="font-medium">{{ project.name }}:</strong>
+                {{ project.description }}
+                <div
+                  v-if="project.technologies && project.technologies.length"
+                  class="text-sm text-gray-500 mt-1"
+                >
+                  Technologies: {{ project.technologies.join(", ") }}
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
