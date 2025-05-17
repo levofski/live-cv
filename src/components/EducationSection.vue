@@ -68,7 +68,12 @@ function toggleExpand(id) {
             opacity: 0,
             y: -20,
             height: 0,
-            transition: { duration: 200 },
+            transition: {
+              type: 'spring',
+              stiffness: 250,
+              damping: 25,
+              mass: 0.5,
+            },
           }"
           class="mt-4 pt-4 border-t border-gray-200 overflow-hidden"
         >
