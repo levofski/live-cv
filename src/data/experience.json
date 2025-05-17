@@ -16,7 +16,26 @@
       "Heavily contributed to discovery and specification of projects.",
       "Pioneered and experimented in AI.",
       "Interviewed and tested prospective engineers and DevOps.",
-      "Liaised with PHP London organisers to host the meetup in LendInvest offices."
+      "Liaised with PHP London organisers to host the meetup in LendInvest offices.",
+      "Skills Used: Object Oriented Programming in PHP, Symfony 5.4, 6.4 and some NodeJS and Golang; TDD/BDD and automated testing with PHPUnit, Behat, Jest and Gotest; Domain Driven Design & Microservices Architecture patterns; Lean/Agile methodologies; Some crossover into DevOps, using Docker, Kubernetes, Kind, AWS; Made use of AI and Agent coding where appropriate."
+    ]
+  },
+  {
+    "id": "strategies-group-2012-2022",
+    "title": "Lead PHP Developer (previously Senior)",
+    "company": "The Strategies Group Ltd",
+    "period": "07/2012 – 01/2022",
+    "location": "Camberley",
+    "summary": "Led PHP development, introduced best practices, and mentored developers at a company providing Job Board software and bespoke PHP solutions.",
+    "details": [
+      "Completed full software life cycle for multiple websites in Zend (ZF1, ZF2) and Symfony 5.",
+      "Developed a single page app in Angular 5, backing onto an API built with ZF2.",
+      "Introduced workflow and best practices such as correct version control.",
+      "Championed reusable code and migrating existing code into a reusable form.",
+      "Introduced automated testing into selected projects.",
+      "Mentored other developers.",
+      "Interviewed and tested prospective Developers.",
+      "Skills Used: Object Oriented Programming in PHP, Zend Framework 1 & 2, and Symfony 5; Web Development in HTML, JavaScript, Angular 5, CSS, LESS and Bootstrap; Database/Search index administration in MySQL, MongoDB and ElasticSearch."
     ]
   }
 ]

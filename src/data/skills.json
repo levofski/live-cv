@@ -9,7 +9,27 @@
     { "name": "PHPUnit", "level": 85 },
     { "name": "Behat", "level": 85 },
     { "name": "Jest", "level": 80 },
-    { "name": "Gotest", "level": 80 }
+    { "name": "Gotest", "level": 80 },
+    { "name": "Domain Driven Design", "level": 80 },
+    { "name": "Microservices Architecture", "level": 80 },
+    { "name": "Lean/Agile methodologies", "level": 80 },
+    { "name": "Docker", "level": 70 },
+    { "name": "Kubernetes", "level": 70 },
+    { "name": "Kind", "level": 70 },
+    { "name": "AWS", "level": 70 },
+    { "name": "AI", "level": 75 },
+    { "name": "Agent coding", "level": 75 },
+    { "name": "Zend Framework 1 & 2", "level": 80 },
+    { "name": "Symfony 5", "level": 90 },
+    { "name": "HTML", "level": 80 },
+    { "name": "JavaScript", "level": 80 },
+    { "name": "Angular 5", "level": 75 },
+    { "name": "CSS", "level": 80 },
+    { "name": "LESS", "level": 75 },
+    { "name": "Bootstrap", "level": 75 },
+    { "name": "MySQL", "level": 85 },
+    { "name": "MongoDB", "level": 75 },
+    { "name": "ElasticSearch", "level": 75 }
   ],
   "soft": []
 }

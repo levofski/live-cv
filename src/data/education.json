@@ -1,18 +1,18 @@
 [
   {
-    "id": 1,
-    "degree": "Master of Science in Computer Science",
-    "institution": "Stanford University",
-    "period": "2015 - 2017",
-    "location": "Stanford, CA",
-    "details": "Thesis on 'Scalable Machine Learning Algorithms'. Graduated with Honors."
+    "id": "sussex-uni-2003",
+    "degree": "BEng (Hons) in Electronic Engineering and Computer Science (1st Class)",
+    "institution": "University of Sussex",
+    "period": "10/2000 – 06/2003",
+    "location": "",
+    "details": "Awarded: Best Student in Electronic Engineering and Computer Science 2003. Subjects and Skills Studied Included: Object Oriented Programming in Java, Software Design (OOA/D), Database Design, Implementation and Normalisation. 3rd Year Software Project: Order System for Retail Outlet."
   },
   {
-    "id": 2,
-    "degree": "Bachelor of Science in Software Engineering",
-    "institution": "University of Texas at Austin",
-    "period": "2011 - 2015",
-    "location": "Austin, TX",
-    "details": "Focus on web development and database management. Dean's List for 4 semesters."
+    "id": "kings-manor-1998",
+    "degree": "A-Levels & GCSEs",
+    "institution": "King’s Manor School and Sixth Form",
+    "period": "09/1992 – 07/1998",
+    "location": "",
+    "details": "‘A’ Levels: Physics B, Mathematics C, Electronics D. 9 GCSEs at grade C or above, including Mathematics A* and Science AA."
   }
 ]
