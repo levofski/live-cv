@@ -82,7 +82,7 @@ function toggleExpand(id) {
             <li
               v-for="(detail, index) in exp.details"
               :key="index"
-              class="text-gray-600"
+              class="text-gray-600 text-left"
             >
               {{ detail }}
             </li>
