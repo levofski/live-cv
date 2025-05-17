@@ -81,5 +81,32 @@
       "Interviewed and tested prospective Developers.",
       "Skills Used: Object Oriented Programming in PHP, Zend Framework 1 & 2, and Symfony 5; Web Development in HTML, JavaScript, Angular 5, CSS, LESS and Bootstrap; Database/Search index administration in MySQL, MongoDB and ElasticSearch."
     ]
+  },
+  {
+    "id": "screenpages-2010-2012",
+    "title": "Senior PHP Developer, Magento E-Commerce Platform",
+    "company": "Screenpages Ltd",
+    "period": "03/2010 – 07/2012",
+    "location": "Wisley",
+    "summary": "Senior PHP Developer working on the Magento E-Commerce Platform.",
+    "details": []
+  },
+  {
+    "id": "freeads-2009-2010",
+    "title": "Programmer, Freeads.co.uk website",
+    "company": "Freeads Classifieds Ltd",
+    "period": "04/2009 – 03/2010",
+    "location": "Camberley",
+    "summary": "Programmer for the Freeads.co.uk classifieds website.",
+    "details": []
+  },
+  {
+    "id": "office-shadow-2005-2009",
+    "title": "Programmer / Software Architect, Shadow-Planner Business Continuity Suite",
+    "company": "Office-Shadow Ltd",
+    "period": "08/2005 – 02/2009",
+    "location": "Sidlow",
+    "summary": "Programmer and Software Architect for the Shadow-Planner Business Continuity Suite.",
+    "details": []
   }
 ]
