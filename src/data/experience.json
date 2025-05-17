@@ -1,30 +1,22 @@
 [
   {
-    "id": 1,
-    "title": "Senior Software Engineer",
-    "company": "Tech Solutions Inc.",
-    "period": "Jan 2020 - Present",
-    "location": "San Francisco, CA",
-    "summary": "Led development of key features for a flagship product, mentored junior engineers, and improved system performance by 20%.",
+    "id": "lendinvest-2022-present",
+    "title": "Lead Backend Engineer (previously Senior)",
+    "company": "LendInvest Plc",
+    "period": "01/2022 – Present",
+    "location": "London (Remote)",
+    "summary": "Contributed to the full software life cycle of microservices in Symfony, focusing on SOLID principles, architectural improvements, and team mentorship at a leading UK specialist mortgage lender.",
     "details": [
-      "Architected and implemented a new microservices-based backend.",
-      "Collaborated with cross-functional teams to define project requirements.",
-      "Introduced CI/CD pipelines, reducing deployment time by 50%.",
-      "Received company award for innovation in Q3 2022."
-    ]
-  },
-  {
-    "id": 2,
-    "title": "Software Engineer",
-    "company": "Innovatech Ltd.",
-    "period": "Jun 2017 - Dec 2019",
-    "location": "Austin, TX",
-    "summary": "Developed and maintained web applications using modern JavaScript frameworks. Contributed to a 15% increase in user engagement.",
-    "details": [
-      "Built responsive user interfaces with Vue.js and React.",
-      "Worked in an Agile environment, participating in daily stand-ups and sprint planning.",
-      "Integrated third-party APIs for enhanced functionality.",
-      "Wrote unit and integration tests to ensure code quality."
+      "As part of an agile team, completed full software life cycle, and maintained several microservices in Symfony 5.4 & 6.4.",
+      "Responsible for code reviews, focusing on SOLID principles.",
+      "Prepared and hosted several company-wide learning sessions, with subjects including AI and The Full Loan Lifecycle.",
+      "Assessed and helped to improve the microservices architecture to prevent race-conditions.",
+      "Branched out into some DevOps projects, such as Datadog integration, MySQL 8 upgrades, Development Stack improvements.",
+      "Mentored several other engineers.",
+      "Heavily contributed to discovery and specification of projects.",
+      "Pioneered and experimented in AI.",
+      "Interviewed and tested prospective engineers and DevOps.",
+      "Liaised with PHP London organisers to host the meetup in LendInvest offices."
     ]
   }
 ]

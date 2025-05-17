@@ -28,124 +28,58 @@ function toggleExpand(id) {
             <h3 class="text-xl font-semibold text-blue-600">
               {{ edu.degree }}
             </h3>
-            <span
-              class="text-sm text-gray-500 font-medium bg-gray-100 px-2 py-1 rounded"
-              >{{ edu.institution }}</span
-            >
+            <span class="text-sm text-gray-500">{{ edu.period }}</span>
           </div>
           <div class="flex items-center space-x-4 text-sm text-gray-500 mb-2">
-            <div class="flex items-center space-x-1">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                ></path>
-              </svg>
-              <span>{{ edu.period }}</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                ></path>
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                ></path>
-              </svg>
-              <span>{{ edu.location }}</span>
-            </div>
-          </div>
-          <button
-            v-if="edu.details"
-            class="button button-secondary text-sm py-1 px-3"
-          >
-            {{ expanded[edu.id] ? "Show Less" : "Show More Details" }}
             <svg
-              :class="{ 'rotate-180': expanded[edu.id] }"
-              class="w-4 h-4 inline-block ml-1 transition-transform duration-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 text-gray-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
+                fill-rule="evenodd"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                clip-rule="evenodd"
+              />
             </svg>
+            <span>{{ edu.location }} - {{ edu.institution }}</span>
+          </div>
+          <button class="button button-secondary text-sm py-1 px-3">
+            {{ expanded[edu.id] ? "Show Less" : "Show More" }}
           </button>
         </div>
-        <transition
-          name="expand"
-          @enter="
-            (el, done) => {
-              el.style.height = el.scrollHeight + 'px';
-              done();
-            }
-          "
-          @after-enter="
-            (el) => {
-              el.style.height = 'auto';
-            }
-          "
-          @before-leave="
-            (el) => {
-              el.style.height = el.scrollHeight + 'px';
-            }
-          "
-          @leave="
-            (el, done) => {
-              el.style.height = '0px';
-              done();
-            }
-          "
+        <div
+          v-if="expanded[edu.id]"
+          v-motion
+          :initial="{ opacity: 0, y: -20, height: 0 }"
+          :enter="{
+            opacity: 1,
+            y: 0,
+            height: 'auto',
+            transition: {
+              type: 'spring',
+              stiffness: 250,
+              damping: 25,
+              mass: 0.5,
+            },
+          }"
+          :leave="{
+            opacity: 0,
+            y: -20,
+            height: 0,
+            transition: { duration: 200 },
+          }"
+          class="mt-4 pt-4 border-t border-gray-200 overflow-hidden"
         >
-          <div
-            v-if="expanded[edu.id] && edu.details"
-            class="mt-4 pt-4 border-t border-gray-200"
-          >
-            <p class="text-gray-600 leading-relaxed">{{ edu.details }}</p>
-          </div>
-        </transition>
+          <p class="text-gray-600">{{ edu.details }}</p>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.expand-enter-active,
-.expand-leave-active {
-  transition: height 0.4s ease-in-out;
-  overflow: hidden;
-}
-
-.expand-enter-from,
-.expand-leave-to {
-  height: 0;
-}
-
 .text-blue-600 {
   color: #2563eb; /* Tailwind's blue-600 */
 }

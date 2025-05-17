@@ -1,17 +1,15 @@
 {
   "technical": [
-    { "name": "JavaScript (ES6+)", "level": 95 },
-    { "name": "Vue.js", "level": 90 },
-    { "name": "Node.js", "level": 85 },
-    { "name": "Python", "level": 80 },
-    { "name": "SQL & NoSQL Databases", "level": 75 },
-    { "name": "Docker & Kubernetes", "level": 70 },
-    { "name": "AWS", "level": 65 }
+    { "name": "PHP", "level": 90 },
+    { "name": "Symfony 5.4/6.4", "level": 90 },
+    { "name": "Object Oriented Programming", "level": 90 },
+    { "name": "NodeJS", "level": 75 },
+    { "name": "Golang", "level": 70 },
+    { "name": "TDD/BDD", "level": 85 },
+    { "name": "PHPUnit", "level": 85 },
+    { "name": "Behat", "level": 85 },
+    { "name": "Jest", "level": 80 },
+    { "name": "Gotest", "level": 80 }
   ],
-  "soft": [
-    "Problem Solving",
-    "Team Leadership",
-    "Communication",
-    "Agile Methodologies"
-  ]
+  "soft": []
 }
