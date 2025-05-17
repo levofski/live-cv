@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref } from "vue";
+import { defineProps, ref, computed } from "vue";
 
 defineProps({
   education: Array,
@@ -10,6 +10,16 @@ const expanded = ref({});
 function toggleExpand(id) {
   expanded.value[id] = !expanded.value[id];
 }
+
+const hasExpandableContent = (eduItem) => {
+  return (
+    (eduItem.awards && eduItem.awards.length > 0) ||
+    (eduItem.subjectsStudied && eduItem.subjectsStudied.length > 0) ||
+    eduItem.finalYearProject ||
+    (eduItem.aLevels && eduItem.aLevels.length > 0) ||
+    (eduItem.gcses && eduItem.gcses.length > 0)
+  );
+};
 </script>
 
 <template>
@@ -23,12 +33,15 @@ function toggleExpand(id) {
         :key="edu.id"
         class="p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300"
       >
-        <div @click="toggleExpand(edu.id)" class="cursor-pointer">
+        <div
+          @click="hasExpandableContent(edu) && toggleExpand(edu.id)"
+          :class="{ 'cursor-pointer': hasExpandableContent(edu) }"
+        >
           <div class="flex justify-between items-start mb-1">
             <h3 class="text-xl font-semibold text-blue-600">
               {{ edu.degree }}
             </h3>
-            <div class="flex items-center">
+            <div v-if="hasExpandableContent(edu)" class="flex items-center">
               <span class="text-sm text-gray-500 mr-2">{{ edu.period }}</span>
               <svg
                 v-if="!expanded[edu.id]"
@@ -80,7 +93,7 @@ function toggleExpand(id) {
           </div>
         </div>
         <div
-          v-if="expanded[edu.id]"
+          v-if="hasExpandableContent(edu) && expanded[edu.id]"
           v-motion
           :initial="{ opacity: 0, y: -20, height: 0 }"
           :enter="{

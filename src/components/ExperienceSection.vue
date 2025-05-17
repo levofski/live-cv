@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref } from "vue";
+import { defineProps, ref, computed } from "vue";
 
 defineProps({
   experiences: Array,
@@ -10,6 +10,13 @@ const expanded = ref({});
 function toggleExpand(id) {
   expanded.value[id] = !expanded.value[id];
 }
+
+const hasExpandableContent = (expItem) => {
+  return (
+    (expItem.details && expItem.details.length > 0) ||
+    (expItem.projects && expItem.projects.length > 0)
+  );
+};
 </script>
 
 <template>
@@ -23,43 +30,48 @@ function toggleExpand(id) {
         :key="exp.id"
         class="p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300"
       >
-        <div @click="toggleExpand(exp.id)" class="cursor-pointer">
+        <div
+          @click="hasExpandableContent(exp) && toggleExpand(exp.id)"
+          :class="{ 'cursor-pointer': hasExpandableContent(exp) }"
+        >
           <div class="flex justify-between items-start mb-1">
             <h3 class="text-xl font-semibold text-blue-600">
               {{ exp.title }} at {{ exp.company }}
             </h3>
             <div class="flex items-center">
               <span class="text-sm text-gray-500 mr-2">{{ exp.period }}</span>
-              <svg
-                v-if="!expanded[exp.id]"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-              <svg
-                v-else
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 15l7-7 7 7"
-                />
-              </svg>
+              <div v-if="hasExpandableContent(exp)">
+                <svg
+                  v-if="!expanded[exp.id]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 15l7-7 7 7"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
           <div class="flex items-center space-x-4 text-sm text-gray-500 mb-2">
@@ -80,7 +92,7 @@ function toggleExpand(id) {
           <p class="text-gray-600 leading-relaxed mb-3">{{ exp.summary }}</p>
         </div>
         <div
-          v-if="expanded[exp.id]"
+          v-if="hasExpandableContent(exp) && expanded[exp.id]"
           v-motion
           :initial="{ opacity: 0, y: -20, height: 0 }"
           :enter="{
