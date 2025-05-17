@@ -5,7 +5,15 @@
     "institution": "University of Sussex",
     "period": "10/2000 – 06/2003",
     "location": "",
-    "details": "Awarded: Best Student in Electronic Engineering and Computer Science 2003. Subjects and Skills Studied Included: Object Oriented Programming in Java, Software Design (OOA/D), Database Design, Implementation and Normalisation. 3rd Year Software Project: Order System for Retail Outlet."
+    "awards": [
+      "Best Student in Electronic Engineering and Computer Science 2003"
+    ],
+    "subjectsStudied": [
+      "Object Oriented Programming in Java",
+      "Software Design (OOA/D)",
+      "Database Design, Implementation and Normalisation"
+    ],
+    "finalYearProject": "Order System for Retail Outlet"
   },
   {
     "id": "kings-manor-1998",
@@ -13,6 +21,29 @@
     "institution": "King’s Manor School and Sixth Form",
     "period": "09/1992 – 07/1998",
     "location": "",
-    "details": "‘A’ Levels: Physics B, Mathematics C, Electronics D. 9 GCSEs at grade C or above, including Mathematics A* and Science AA."
+    "aLevels": [
+      {
+        "subject": "Physics",
+        "grade": "B"
+      },
+      {
+        "subject": "Mathematics",
+        "grade": "C"
+      },
+      {
+        "subject": "Electronics",
+        "grade": "D"
+      }
+    ],
+    "gcses": [
+      {
+        "subject": "Mathematics",
+        "grade": "A*"
+      },
+      {
+        "subject": "Science",
+        "grade": "AA"
+      }
+    ]
   }
 ]

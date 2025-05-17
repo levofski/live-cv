@@ -48,9 +48,11 @@ const renderedMarkdown = computed(() => {
   margin-top: 1em;
   margin-bottom: 1em;
   padding-left: 1.75em;
+  text-align: left; /* Ensure left alignment */
 }
 .prose :where(li):not(:where([class~="not-prose"] *)) {
   margin-top: 0.25em;
   margin-bottom: 0.25em;
+  text-align: left; /* Ensure left alignment for list items too */
 }
 </style>

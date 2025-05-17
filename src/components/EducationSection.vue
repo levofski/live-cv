@@ -43,7 +43,8 @@ function toggleExpand(id) {
                 clip-rule="evenodd"
               />
             </svg>
-            <span>{{ edu.location }} - {{ edu.institution }}</span>
+            <span v-if="edu.location">{{ edu.location }} - </span>
+            <span>{{ edu.institution }}</span>
           </div>
           <button class="button button-secondary text-sm py-1 px-3">
             {{ expanded[edu.id] ? "Show Less" : "Show More" }}
@@ -75,9 +76,64 @@ function toggleExpand(id) {
               mass: 0.5,
             },
           }"
-          class="mt-4 pt-4 border-t border-gray-200 overflow-hidden"
+          class="mt-4 pt-4 border-t border-gray-200 overflow-hidden text-left"
         >
-          <p class="text-gray-600">{{ edu.details }}</p>
+          <div v-if="edu.awards && edu.awards.length" class="mb-3">
+            <h4 class="text-md font-semibold text-gray-700 mb-1">Awards:</h4>
+            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+              <li v-for="(award, index) in edu.awards" :key="'award-' + index">
+                {{ award }}
+              </li>
+            </ul>
+          </div>
+
+          <div
+            v-if="edu.subjectsStudied && edu.subjectsStudied.length"
+            class="mb-3"
+          >
+            <h4 class="text-md font-semibold text-gray-700 mb-1">
+              Subjects Studied:
+            </h4>
+            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+              <li
+                v-for="(subject, index) in edu.subjectsStudied"
+                :key="'subject-' + index"
+              >
+                {{ subject }}
+              </li>
+            </ul>
+          </div>
+
+          <div v-if="edu.finalYearProject" class="mb-3">
+            <h4 class="text-md font-semibold text-gray-700 mb-1">
+              Final Year Project:
+            </h4>
+            <p class="text-gray-600">{{ edu.finalYearProject }}</p>
+          </div>
+
+          <div v-if="edu.aLevels && edu.aLevels.length" class="mb-3">
+            <h4 class="text-md font-semibold text-gray-700 mb-1">A-Levels:</h4>
+            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+              <li
+                v-for="(level, index) in edu.aLevels"
+                :key="'alevel-' + index"
+              >
+                {{ level.subject }}: {{ level.grade }}
+              </li>
+            </ul>
+          </div>
+
+          <div v-if="edu.gcses && edu.gcses.length" class="mb-3">
+            <h4 class="text-md font-semibold text-gray-700 mb-1">GCSEs:</h4>
+            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+              <li v-for="(item, index) in edu.gcses" :key="'gcse-' + index">
+                {{ item.subject }}: {{ item.grade }}
+              </li>
+            </ul>
+            <p class="text-gray-600 text-sm mt-1">
+              (Plus other GCSEs at grade C or above)
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -88,4 +144,5 @@ function toggleExpand(id) {
 .text-blue-600 {
   color: #2563eb; /* Tailwind's blue-600 */
 }
+/* Add any additional scoped styles if needed */
 </style>
