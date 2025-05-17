@@ -35,9 +35,14 @@ const hasExpandableContent = (expItem) => {
           :class="{ 'cursor-pointer': hasExpandableContent(exp) }"
         >
           <div class="flex justify-between items-start mb-1">
-            <h3 class="text-xl font-semibold text-blue-600">
-              {{ exp.title }} at {{ exp.company }}
-            </h3>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-600">
+                {{ exp.title }}
+              </h3>
+              <h4 class="text-lg text-gray-600">
+                {{ exp.company }}
+              </h4>
+            </div>
             <div class="flex items-center">
               <span class="text-sm text-gray-500 mr-2">{{ exp.period }}</span>
               <div v-if="hasExpandableContent(exp)">
@@ -89,6 +94,12 @@ const hasExpandableContent = (expItem) => {
             </svg>
             <span>{{ exp.location }}</span>
           </div>
+          <p
+            v-if="exp.companyDescription"
+            class="text-sm text-gray-500 italic mb-3"
+          >
+            {{ exp.companyDescription }}
+          </p>
           <p class="text-gray-600 leading-relaxed mb-3">{{ exp.summary }}</p>
         </div>
         <div
