@@ -78,7 +78,7 @@ function toggleExpand(id) {
           }"
           class="mt-4 pt-4 border-t border-gray-200 overflow-hidden"
         >
-          <ul class="list-disc pl-5 space-y-1">
+          <ul class="list-disc pl-5 space-y-1 mb-6">
             <li
               v-for="(detail, index) in exp.details"
               :key="index"
@@ -90,24 +90,37 @@ function toggleExpand(id) {
 
           <div
             v-if="exp.projects && exp.projects.length"
-            class="mt-4 pt-4 border-t border-gray-100"
+            class="mt-6 pt-6 border-t-2 border-gray-200"
           >
-            <h4 class="text-md font-semibold text-gray-700 mb-2">
+            <h4 class="text-lg font-semibold text-gray-700 mb-3">
               Notable Projects:
             </h4>
-            <ul class="list-disc pl-5 space-y-2">
+            <ul class="space-y-3">
               <li
                 v-for="project in exp.projects"
                 :key="project.id"
-                class="text-gray-600"
+                class="text-gray-600 bg-gray-50 p-3 rounded-md shadow-sm"
               >
-                <strong class="font-medium">{{ project.name }}:</strong>
-                {{ project.description }}
+                <strong class="font-semibold text-blue-600">{{
+                  project.name
+                }}</strong>
+                <p class="text-sm text-gray-700 mt-1 mb-2">
+                  {{ project.description }}
+                </p>
                 <div
                   v-if="project.technologies && project.technologies.length"
-                  class="text-sm text-gray-500 mt-1"
+                  class="mt-2"
                 >
-                  Technologies: {{ project.technologies.join(", ") }}
+                  <span class="text-xs font-medium text-gray-500 mr-2"
+                    >Technologies:</span
+                  >
+                  <span
+                    v-for="tech in project.technologies"
+                    :key="tech"
+                    class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  >
+                    {{ tech }}
+                  </span>
                 </div>
               </li>
             </ul>
