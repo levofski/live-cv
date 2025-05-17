@@ -17,6 +17,7 @@ The CV data will be stored using:
 - **Markdown files** for longer-form content (personal statements, detailed project descriptions)
 
 These files will be organized in a `/data` directory within the project structure.
+*The initial data for these files should be sourced from `docs/cv-original.md`.*
 
 ## Visual Enhancement Strategies
 ### Dynamic Elements
@@ -36,3 +37,16 @@ These files will be organized in a `/data` directory within the project structur
 - Component-based expandable sections
 - Optimized loading for performance
 - Consistent visual language and professional color scheme
+- **Project Structure:**
+    - Use Vite for the build tool and dev server.
+    - Organize components in `src/components`.
+    - Use `src/views` for page-level components.
+    - Store CV data in `src/data` (JSON and Markdown files).
+    - Place static assets in `src/assets`.
+    - Consider `src/router/` for Vue Router if multiple pages are needed.
+    - Use Pinia (recommended) or Vuex for state management in `src/store/` if complexity increases.
+    - Create `src/utils/` for helper functions (e.g., Markdown parsing, PDF generation).
+- **Data Handling:**
+    - Define clear schemas for JSON data.
+    - Use dynamic imports or the `fetch` API to load JSON.
+    - Employ a Markdown parsing library (e.g., `marked` or `markdown-it`) for Markdown content.
