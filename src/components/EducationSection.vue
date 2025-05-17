@@ -28,7 +28,39 @@ function toggleExpand(id) {
             <h3 class="text-xl font-semibold text-blue-600">
               {{ edu.degree }}
             </h3>
-            <span class="text-sm text-gray-500">{{ edu.period }}</span>
+            <div class="flex items-center">
+              <span class="text-sm text-gray-500 mr-2">{{ edu.period }}</span>
+              <svg
+                v-if="!expanded[edu.id]"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </div>
           </div>
           <div class="flex items-center space-x-4 text-sm text-gray-500 mb-2">
             <svg
@@ -46,9 +78,6 @@ function toggleExpand(id) {
             <span v-if="edu.location">{{ edu.location }} - </span>
             <span>{{ edu.institution }}</span>
           </div>
-          <button class="button button-secondary text-sm py-1 px-3">
-            {{ expanded[edu.id] ? "Show Less" : "Show More" }}
-          </button>
         </div>
         <div
           v-if="expanded[edu.id]"

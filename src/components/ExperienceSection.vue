@@ -28,7 +28,39 @@ function toggleExpand(id) {
             <h3 class="text-xl font-semibold text-blue-600">
               {{ exp.title }} at {{ exp.company }}
             </h3>
-            <span class="text-sm text-gray-500">{{ exp.period }}</span>
+            <div class="flex items-center">
+              <span class="text-sm text-gray-500 mr-2">{{ exp.period }}</span>
+              <svg
+                v-if="!expanded[exp.id]"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </div>
           </div>
           <div class="flex items-center space-x-4 text-sm text-gray-500 mb-2">
             <svg
@@ -46,9 +78,6 @@ function toggleExpand(id) {
             <span>{{ exp.location }}</span>
           </div>
           <p class="text-gray-600 leading-relaxed mb-3">{{ exp.summary }}</p>
-          <button class="button button-secondary text-sm py-1 px-3">
-            {{ expanded[exp.id] ? "Show Less" : "Show More" }}
-          </button>
         </div>
         <div
           v-if="expanded[exp.id]"
