@@ -19,6 +19,32 @@ const formatLink = (link) => {
       Contact & Links
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+      <div
+        v-if="profile.location"
+        class="flex items-center space-x-3 md:col-span-2"
+      >
+        <svg
+          class="w-5 h-5 text-blue-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+        <span class="text-gray-700">{{ profile.location }}</span>
+      </div>
       <div v-if="profile.email" class="flex items-center space-x-3">
         <svg
           class="w-5 h-5 text-blue-500"
