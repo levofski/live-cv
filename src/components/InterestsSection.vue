@@ -20,7 +20,7 @@ const renderedMarkdown = computed(() => {
       </h2>
       <div
         v-if="renderedMarkdown"
-        class="prose prose-lg max-w-none text-gray-700 leading-relaxed bg-white p-8 rounded-lg"
+        class="prose prose-lg max-w-none text-gray-700 leading-relaxed bg-white p-4 rounded-lg"
         v-html="renderedMarkdown"
       ></div>
       <div v-else class="text-center text-gray-500">
@@ -33,6 +33,10 @@ const renderedMarkdown = computed(() => {
 </template>
 
 <style scoped>
+.prose :where(p):not(:where([class~="not-prose"] *)) {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 .prose :deep(ul) {
   list-style-type: disc;
   padding-left: 1.5em;
