@@ -1,0 +1,34 @@
+[
+  {
+    "id": "project-live-cv",
+    "name": "Live CV",
+    "period": "2025",
+    "summary": "A dynamic, interactive curriculum vitae web application built with Vue.js and Vite.",
+    "technologies": [
+      "Vue.js",
+      "Vite",
+      "Tailwind CSS",
+      "JavaScript",
+      "Agent Coding",
+      "MCP"
+    ],
+    "details": [
+      "Used Github Copilot Agent in VSCode to generate code",
+      "Used Context 7 MCP to provide documentation context"
+    ],
+    "liveUrl": "https://levofski.github.io/live-cv/",
+    "sourceUrl": "https://github.com/levofski/live-cv"
+  },
+  {
+    "id": "project-scryfall-mcp",
+    "name": "Scryfall MCP Server",
+    "period": "2025",
+    "summary": "An MCP server to allow AI Agents to search for Magic: The Gathering cards via the scryfall.com database.",
+    "technologies": ["Golang", "Agent Coding", "MCP"],
+    "details": [
+      "Used Github Copilot Agent in VSCode to generate code",
+      "Used Context 7 MCP to provide documentation context"
+    ],
+    "sourceUrl": "https://github.com/levofski/mtg-experiment"
+  }
+]

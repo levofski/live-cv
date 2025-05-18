@@ -5,11 +5,13 @@ import ExperienceSection from "./components/ExperienceSection.vue";
 import EducationSection from "./components/EducationSection.vue";
 import SkillsSection from "./components/SkillsSection.vue";
 import PersonalStatement from "./components/PersonalStatement.vue";
+import ProjectsSection from "./components/ProjectsSection.vue";
 
 const profile = ref({});
 const experiences = ref([]);
 const education = ref([]);
 const skills = ref({});
+const projects = ref([]);
 const personalStatement = ref("");
 const isLoading = ref(true);
 
@@ -21,6 +23,7 @@ async function fetchData() {
     const experienceModule = await import("./data/experience.json");
     const educationModule = await import("./data/education.json");
     const skillsModule = await import("./data/skills.json");
+    const projectsModule = await import("./data/projects.json");
 
     // For Markdown, we use the ?raw suffix to get the raw content
     const statementModule = await import("./data/personal_statement.md?raw");
@@ -29,6 +32,7 @@ async function fetchData() {
     experiences.value = experienceModule.default;
     education.value = educationModule.default;
     skills.value = skillsModule.default;
+    projects.value = projectsModule.default;
     personalStatement.value = statementModule.default;
   } catch (error) {
     console.error("Error loading CV data:", error);
@@ -104,21 +108,26 @@ function downloadPdf() {
           class="cv-section fade-in-up"
           style="animation-delay: 0.9s"
         />
+        <ProjectsSection
+          :projects="projects"
+          class="cv-section fade-in-up"
+          style="animation-delay: 1.1s"
+        />
         <EducationSection
           :education="education"
           class="cv-section fade-in-up"
-          style="animation-delay: 1.1s"
+          style="animation-delay: 1.3s"
         />
         <SkillsSection
           :skills="skills"
           class="cv-section fade-in-up"
-          style="animation-delay: 1.3s"
+          style="animation-delay: 1.5s"
         />
       </main>
 
       <footer
         class="text-center mt-16 py-8 border-t border-gray-200 fade-in-up"
-        style="animation-delay: 1.5s"
+        style="animation-delay: 1.7s"
       >
         <p class="text-gray-500">
           &copy; {{ new Date().getFullYear() }} {{ profile.name }}. All rights

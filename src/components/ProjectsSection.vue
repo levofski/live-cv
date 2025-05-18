@@ -26,8 +26,8 @@ function getTechColor(index) {
 
 <template>
   <section>
-    <h2 class="text-3xl font-semibold text-gray-700 mb-8 border-b pb-3">
-      Featured Projects
+    <h2 class="text-3xl font-semibold text-gray-700 mb-6">
+      Personal Projects
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div
@@ -60,10 +60,41 @@ function getTechColor(index) {
             {{ project.summary }}
           </p>
 
-          <div @click="toggleExpand(project.id)" class="cursor-pointer mb-4">
-            <button class="button button-secondary text-sm py-1 px-3 w-full">
-              {{ expanded[project.id] ? "Show Less" : "Show Details" }}
-            </button>
+          <div 
+            v-if="project.details && project.details.length"
+            @click="toggleExpand(project.id)" 
+            class="flex justify-center cursor-pointer mb-4"
+          >
+            <svg
+              v-if="!expanded[project.id]"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-gray-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+            <svg
+              v-else
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-gray-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 15l7-7 7 7"
+              />
+            </svg>
           </div>
 
           <div
@@ -89,10 +120,11 @@ function getTechColor(index) {
             }"
             class="project-details-wrapper overflow-hidden"
           >
-            <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600">
+            <ul class="space-y-2 text-sm text-gray-600">
               <li
                 v-for="(detail, dIndex) in project.details"
                 :key="dIndex"
+                class="flex items-start"
                 v-motion
                 :initial="{ opacity: 0, x: -20 }"
                 :enter="{
@@ -106,7 +138,14 @@ function getTechColor(index) {
                   },
                 }"
               >
-                {{ detail }}
+                <svg
+                  class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <circle cx="10" cy="10" r="4" />
+                </svg>
+                <span>{{ detail }}</span>
               </li>
             </ul>
           </div>
