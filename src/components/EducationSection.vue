@@ -123,9 +123,24 @@ const hasExpandableContent = (eduItem) => {
         >
           <div v-if="edu.awards && edu.awards.length" class="mb-3">
             <h4 class="text-md font-semibold text-gray-700 mb-1">Awards:</h4>
-            <ul class="list-disc pl-5 space-y-1 text-gray-600">
-              <li v-for="(award, index) in edu.awards" :key="'award-' + index">
-                {{ award }}
+            <ul class="space-y-1 text-gray-600">
+              <li
+                v-for="(award, index) in edu.awards"
+                :key="'award-' + index"
+                class="flex items-start"
+              >
+                <svg
+                  class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span>{{ award }}</span>
               </li>
             </ul>
           </div>
@@ -137,12 +152,24 @@ const hasExpandableContent = (eduItem) => {
             <h4 class="text-md font-semibold text-gray-700 mb-1">
               Subjects Studied:
             </h4>
-            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+            <ul class="space-y-1 text-gray-600">
               <li
                 v-for="(subject, index) in edu.subjectsStudied"
                 :key="'subject-' + index"
+                class="flex items-start"
               >
-                {{ subject }}
+                <svg
+                  class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span>{{ subject }}</span>
               </li>
             </ul>
           </div>
@@ -156,21 +183,48 @@ const hasExpandableContent = (eduItem) => {
 
           <div v-if="edu.aLevels && edu.aLevels.length" class="mb-3">
             <h4 class="text-md font-semibold text-gray-700 mb-1">A-Levels:</h4>
-            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+            <ul class="space-y-1 text-gray-600">
               <li
                 v-for="(level, index) in edu.aLevels"
                 :key="'alevel-' + index"
+                class="flex items-start"
               >
-                {{ level.subject }}: {{ level.grade }}
+                <svg
+                  class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span>{{ level.subject }}: {{ level.grade }}</span>
               </li>
             </ul>
           </div>
 
           <div v-if="edu.gcses && edu.gcses.length" class="mb-3">
             <h4 class="text-md font-semibold text-gray-700 mb-1">GCSEs:</h4>
-            <ul class="list-disc pl-5 space-y-1 text-gray-600">
-              <li v-for="(item, index) in edu.gcses" :key="'gcse-' + index">
-                {{ item.subject }}: {{ item.grade }}
+            <ul class="space-y-1 text-gray-600">
+              <li
+                v-for="(item, index) in edu.gcses"
+                :key="'gcse-' + index"
+                class="flex items-start"
+              >
+                <svg
+                  class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span>{{ item.subject }}: {{ item.grade }}</span>
               </li>
             </ul>
             <p class="text-gray-600 text-sm mt-1">

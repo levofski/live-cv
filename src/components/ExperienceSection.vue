@@ -134,13 +134,24 @@ const hasExpandableContent = (expItem) => {
           }"
           class="mt-4 pt-4 border-t border-gray-200 overflow-hidden"
         >
-          <ul class="list-disc pl-5 space-y-1 mb-6">
+          <ul v-if="exp.details && exp.details.length" class="space-y-2 mb-6">
             <li
               v-for="(detail, index) in exp.details"
               :key="index"
-              class="text-gray-600 text-left"
+              class="flex items-start text-gray-600 text-left"
             >
-              {{ detail }}
+              <svg
+                class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>{{ detail }}</span>
             </li>
           </ul>
 
