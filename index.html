@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live CV - {{ profile.name || 'Your Name' }}</title>
+    <!-- Dynamic Title -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Basic pre-Vue load styling to prevent FOUC */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f4f7f6;
+      }
+      #app {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+    </style>
+    <script type="module" crossorigin src="/live-cv/assets/index-D2eKtHye.js"></script>
+    <link rel="stylesheet" crossorigin href="/live-cv/assets/index-NUHZJAgc.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // Small script to update title once Vue loads profile data
+      // This is a simple approach; a Vue-specific solution (e.g., using a watcher) is cleaner
+      const observer = new MutationObserver((mutationsList, observer) => {
+        const appElement = document.getElementById("app");
+        if (appElement && appElement.children.length > 0) {
+          // Assuming profile data is loaded and rendered
+          // This is a heuristic and might need adjustment based on App.vue structure
+          const nameElement = appElement.querySelector("h1");
+          if (nameElement && nameElement.textContent !== "{{ profile.name }}") {
+            document.title = `Live CV - ${nameElement.textContent}`;
+            observer.disconnect(); // Stop observing once title is set
+          }
+          // Add a timeout to prevent infinite loops if name isn't found immediately
+          setTimeout(() => observer.disconnect(), 3000);
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      // Show app once CSS is likely loaded
+      window.addEventListener("load", () => {
+        document.getElementById("app").style.opacity = 1;
+      });
+    </script>
+  </body>
+</html>
