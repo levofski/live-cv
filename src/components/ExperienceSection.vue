@@ -38,41 +38,7 @@ const hasExpandableContent = (expItem) => {
             <h3 class="text-xl font-semibold text-blue-600">
               {{ exp.title }}
             </h3>
-            <div class="flex items-center">
-              <span class="text-sm text-gray-500 mr-2">{{ exp.period }}</span>
-              <div v-if="hasExpandableContent(exp)" class="text-gray-500">
-                <svg
-                  v-if="!expanded[exp.id]"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-                <svg
-                  v-else
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 15l7-7 7 7"
-                  />
-                </svg>
-              </div>
-            </div>
+            <span class="text-sm text-gray-500">{{ exp.period }}</span>
           </div>
 
           <div class="flex justify-between items-start mb-2">
@@ -101,6 +67,44 @@ const hasExpandableContent = (expItem) => {
             {{ exp.companyDescription }}
           </p>
           <p class="text-gray-600 leading-relaxed mb-3">{{ exp.summary }}</p>
+
+          <div
+            v-if="hasExpandableContent(exp)"
+            class="flex justify-center mt-4"
+          >
+            <div class="text-gray-500">
+              <svg
+                v-if="!expanded[exp.id]"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
         <div
           v-if="hasExpandableContent(exp) && expanded[exp.id]"
