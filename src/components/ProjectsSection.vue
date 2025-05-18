@@ -163,7 +163,7 @@ function getTechColor(index) {
               :href="project.liveUrl"
               target="_blank"
               class="button button-primary text-sm py-2 px-4"
-              >Live Demo</a
+              >Live URL</a
             >
             <a
               v-if="project.sourceUrl"
