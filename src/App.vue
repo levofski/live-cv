@@ -13,6 +13,7 @@ const education = ref([]);
 const skills = ref({});
 const projects = ref([]);
 const personalStatement = ref("");
+const projectsStatement = ref(""); // Added projectsStatement ref
 const isLoading = ref(true);
 
 async function fetchData() {
@@ -27,6 +28,9 @@ async function fetchData() {
 
     // For Markdown, we use the ?raw suffix to get the raw content
     const statementModule = await import("./data/personal_statement.md?raw");
+    const projectsStatementModule = await import(
+      "./data/projects_statement.md?raw"
+    ); // Added import for projects_statement.md
 
     profile.value = profileModule.default;
     experiences.value = experienceModule.default;
@@ -34,6 +38,7 @@ async function fetchData() {
     skills.value = skillsModule.default;
     projects.value = projectsModule.default;
     personalStatement.value = statementModule.default;
+    projectsStatement.value = projectsStatementModule.default; // Added assignment for projectsStatement
   } catch (error) {
     console.error("Error loading CV data:", error);
   } finally {
@@ -110,6 +115,7 @@ function downloadPdf() {
         />
         <ProjectsSection
           :projects="projects"
+          :projectsStatement="projectsStatement"
           class="cv-section fade-in-up"
           style="animation-delay: 1.1s"
         />

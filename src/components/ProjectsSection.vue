@@ -1,11 +1,19 @@
 <script setup>
-import { defineProps, ref } from "vue";
+import { defineProps, ref, computed } from "vue"; // Added computed
+import { marked } from "marked"; // Added marked
 
 const props = defineProps({
   projects: Array,
+  projectsStatement: String, // Added projectsStatement prop
 });
 
 const expanded = ref({});
+
+// Added renderedMarkdown computed property
+const renderedMarkdown = computed(() => {
+  if (!props.projectsStatement) return "";
+  return marked(props.projectsStatement);
+});
 
 function toggleExpand(id) {
   expanded.value[id] = !expanded.value[id];
@@ -27,6 +35,12 @@ function getTechColor(index) {
 <template>
   <section>
     <h2 class="text-3xl font-semibold text-gray-700 mb-6">Personal Projects</h2>
+    <!-- Added markdown display div -->
+    <div
+      v-if="renderedMarkdown"
+      class="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-8 text-left"
+      v-html="renderedMarkdown"
+    ></div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div
         v-for="project in projects"
@@ -54,7 +68,9 @@ function getTechColor(index) {
               {{ tech }}
             </span>
           </div>
-          <p class="text-gray-600 leading-relaxed mb-4 min-h-[5rem] max-h-20 overflow-y-auto">
+          <p
+            class="text-gray-600 leading-relaxed mb-4 min-h-[5rem] max-h-20 overflow-y-auto"
+          >
             {{ project.summary }}
           </p>
 
