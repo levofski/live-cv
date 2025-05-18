@@ -1,0 +1,1 @@
+I enjoy playing social computer games, both offline and online. I also enjoy other activities including swimming and scuba diving. I have attended PHP User Groups to learn more about Development, and I have spoken at the PHP London User Group and PHP UK Conference in 2015.

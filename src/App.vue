@@ -6,6 +6,7 @@ import EducationSection from "./components/EducationSection.vue";
 import SkillsSection from "./components/SkillsSection.vue";
 import PersonalStatement from "./components/PersonalStatement.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
+import InterestsSection from "./components/InterestsSection.vue"; // Add this line
 
 const profile = ref({});
 const experiences = ref([]);
@@ -13,7 +14,8 @@ const education = ref([]);
 const skills = ref({});
 const projects = ref([]);
 const personalStatement = ref("");
-const projectsStatement = ref(""); // Added projectsStatement ref
+const projectsStatement = ref("");
+const interestsStatement = ref("");
 const isLoading = ref(true);
 
 async function fetchData() {
@@ -31,6 +33,7 @@ async function fetchData() {
     const projectsStatementModule = await import(
       "./data/projects_statement.md?raw"
     ); // Added import for projects_statement.md
+    const interestsStatementModule = await import("./data/interests.md?raw");
 
     profile.value = profileModule.default;
     experiences.value = experienceModule.default;
@@ -38,7 +41,8 @@ async function fetchData() {
     skills.value = skillsModule.default;
     projects.value = projectsModule.default;
     personalStatement.value = statementModule.default;
-    projectsStatement.value = projectsStatementModule.default; // Added assignment for projectsStatement
+    projectsStatement.value = projectsStatementModule.default;
+    interestsStatement.value = interestsStatementModule.default;
   } catch (error) {
     console.error("Error loading CV data:", error);
   } finally {
@@ -124,6 +128,11 @@ function downloadPdf() {
           class="cv-section fade-in-up"
           style="animation-delay: 1.3s"
         />
+        <InterestsSection
+          :interestsStatement="interestsStatement"
+          class="cv-section fade-in-up"
+          style="animation-delay: 1.7s"
+        />
         <SkillsSection
           :skills="skills"
           class="cv-section fade-in-up"
@@ -133,7 +142,7 @@ function downloadPdf() {
 
       <footer
         class="text-center mt-16 py-8 border-t border-gray-200 fade-in-up"
-        style="animation-delay: 1.7s"
+        style="animation-delay: 1.9s"
       >
         <p class="text-gray-500">
           &copy; {{ new Date().getFullYear() }} {{ profile.name }}. All rights
