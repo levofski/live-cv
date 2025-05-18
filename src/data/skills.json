@@ -1,11 +1,10 @@
 {
   "technical": [
     { "name": "PHP", "level": "Expert", "category": "Languages" },
-    { "name": "NodeJS", "level": "Proficient", "category": "Languages" },
     { "name": "Golang", "level": "Beginner", "category": "Languages" },
-    { "name": "Python", "level": "Proficient", "category": "Languages" },
+    { "name": "Python", "level": "Beginner", "category": "Languages" },
     { "name": "JavaScript", "level": "Advanced", "category": "Languages" },
-    { "name": "HTML", "level": "Advanced", "category": "Languages" },
+    { "name": "HTML", "level": "Proficient", "category": "Languages" },
     {
       "name": "Symfony 5.4/6.4",
       "level": "Advanced",

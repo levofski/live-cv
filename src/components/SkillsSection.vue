@@ -8,7 +8,15 @@ const props = defineProps({
 const technicalSkillsContainerRef = ref(null); // Ref for the technical skills container
 const animatedSkillBars = ref(new Set()); // To track which skill bars have been animated
 
-// Group skills by category
+const skillLevelOrder = {
+  Expert: 1,
+  Advanced: 2,
+  Proficient: 3,
+  Intermediate: 4,
+  Beginner: 5,
+};
+
+// Group skills by category and sort them
 const skillsByCategory = computed(() => {
   const categories = {};
   props.skills.technical.forEach((skill) => {
@@ -17,6 +25,15 @@ const skillsByCategory = computed(() => {
     }
     categories[skill.category].push(skill);
   });
+
+  // Sort skills within each category
+  for (const category in categories) {
+    categories[category].sort((a, b) => {
+      return (
+        (skillLevelOrder[a.level] || 99) - (skillLevelOrder[b.level] || 99)
+      );
+    });
+  }
   return categories;
 });
 
