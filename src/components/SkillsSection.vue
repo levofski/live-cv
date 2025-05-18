@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, onMounted, onUnmounted } from "vue";
+import { defineProps, ref, onMounted, onUnmounted, computed } from "vue";
 
 const props = defineProps({
   skills: Object,
@@ -7,6 +7,18 @@ const props = defineProps({
 
 const technicalSkillsContainerRef = ref(null); // Ref for the technical skills container
 const animatedSkillBars = ref(new Set()); // To track which skill bars have been animated
+
+// Group skills by category
+const skillsByCategory = computed(() => {
+  const categories = {};
+  props.skills.technical.forEach((skill) => {
+    if (!categories[skill.category]) {
+      categories[skill.category] = [];
+    }
+    categories[skill.category].push(skill);
+  });
+  return categories;
+});
 
 function getSkillLevelAttributes(level) {
   switch (level) {
@@ -86,28 +98,37 @@ onUnmounted(() => {
           </svg>
           Technical Skills
         </h3>
-        <div class="space-y-5">
-          <div v-for="skill in skills.technical" :key="skill.name" class="">
-            <div class="flex justify-between mb-1">
-              <span class="text-base font-medium text-gray-700">{{
-                skill.name
-              }}</span>
-              <span class="text-sm font-medium text-blue-600">{{
-                skill.level
-              }}</span>
-            </div>
-            <div
-              class="w-full bg-gray-200 rounded-full h-3 shadow-inner overflow-hidden"
-            >
+        <div
+          v-for="(categorySkills, category) in skillsByCategory"
+          :key="category"
+          class="mb-8"
+        >
+          <h4 class="text-lg font-semibold text-gray-600 mb-4 capitalize">
+            {{ category }}
+          </h4>
+          <div class="space-y-5">
+            <div v-for="skill in categorySkills" :key="skill.name" class="">
+              <div class="flex justify-between mb-1">
+                <span class="text-base font-medium text-gray-700">{{
+                  skill.name
+                }}</span>
+                <span class="text-sm font-medium text-blue-600">{{
+                  skill.level
+                }}</span>
+              </div>
               <div
-                :class="getSkillLevelAttributes(skill.level).class"
-                class="h-3 rounded-full transition-all duration-1000 ease-out"
-                :style="{
-                  width: animatedSkillBars.has(skill.name)
-                    ? getSkillLevelAttributes(skill.level).width
-                    : '0%',
-                }"
-              ></div>
+                class="w-full bg-gray-200 rounded-full h-3 shadow-inner overflow-hidden"
+              >
+                <div
+                  :class="getSkillLevelAttributes(skill.level).class"
+                  class="h-3 rounded-full transition-all duration-1000 ease-out"
+                  :style="{
+                    width: animatedSkillBars.has(skill.name)
+                      ? getSkillLevelAttributes(skill.level).width
+                      : '0%',
+                  }"
+                ></div>
+              </div>
             </div>
           </div>
         </div>
