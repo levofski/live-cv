@@ -69,7 +69,7 @@ function getTechColor(index) {
             </span>
           </div>
           <p
-            class="text-gray-600 leading-relaxed mb-4 min-h-[5rem] max-h-20 overflow-y-auto"
+            class="text-gray-600 leading-relaxed mb-4 max-h-20 overflow-y-auto"
           >
             {{ project.summary }}
           </p>
@@ -77,7 +77,7 @@ function getTechColor(index) {
           <div
             v-if="project.details && project.details.length"
             @click="toggleExpand(project.id)"
-            class="flex justify-center cursor-pointer mb-4"
+            class="flex justify-center cursor-pointer mb-1"
           >
             <svg
               v-if="!expanded[project.id]"
@@ -157,7 +157,7 @@ function getTechColor(index) {
             </ul>
           </div>
 
-          <div class="mt-6 flex justify-between items-center space-x-3">
+          <div class="mt-2 flex justify-between items-center space-x-3">
             <a
               v-if="project.liveUrl && project.liveUrl !== '#'"
               :href="project.liveUrl"
