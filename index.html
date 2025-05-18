@@ -9,7 +9,6 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Live CV - {{ profile.name || 'Your Name' }}</title>
-    <base href="/live-cv/" />
     <!-- Dynamic Title -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
@@ -33,7 +32,7 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/live-cv/src/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
     <script>
       // Small script to update title once Vue loads profile data
       // This is a simple approach; a Vue-specific solution (e.g., using a watcher) is cleaner

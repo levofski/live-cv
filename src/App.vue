@@ -23,11 +23,11 @@ async function fetchData() {
       skillsRes,
       personalStatementRes,
     ] = await Promise.all([
-      fetch("/src/data/profile.json"),
-      fetch("/src/data/experience.json"),
-      fetch("/src/data/education.json"),
-      fetch("/src/data/skills.json"),
-      fetch("/src/data/personal_statement.md"),
+      fetch("/live-cv/src/data/profile.json"),
+      fetch("/live-cv/src/data/experience.json"),
+      fetch("/live-cv/src/data/education.json"),
+      fetch("/live-cv/src/data/skills.json"),
+      fetch("/live-cv/src/data/personal_statement.md"),
     ]);
 
     profile.value = await profileRes.json();
