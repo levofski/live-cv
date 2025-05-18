@@ -15,9 +15,6 @@ const formatLink = (link) => {
 
 <template>
   <section>
-    <h2 class="text-3xl font-semibold text-gray-700 mb-6 border-b pb-3">
-      Contact & Links
-    </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
       <div
         v-if="profile.location"

@@ -21,9 +21,6 @@ const renderedMarkdown = computed(() => {
 
 <template>
   <section>
-    <h2 class="text-3xl font-semibold text-gray-700 mb-6 border-b pb-3">
-      About Me
-    </h2>
     <!-- Apply Tailwind Typography for nice default markdown styling -->
     <div
       class="prose prose-lg max-w-none text-gray-700 leading-relaxed"
