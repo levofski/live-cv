@@ -22,4 +22,6 @@ export default defineConfig({
       input: resolve(__dirname, "index.html"),
     },
   },
+  // Ensure Markdown files can be imported with ?raw suffix
+  assetsInclude: ["**/*.md"],
 });

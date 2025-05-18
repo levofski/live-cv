@@ -16,27 +16,22 @@ const isLoading = ref(true);
 async function fetchData() {
   isLoading.value = true;
   try {
-    const [
-      profileRes,
-      experienceRes,
-      educationRes,
-      skillsRes,
-      personalStatementRes,
-    ] = await Promise.all([
-      fetch("/live-cv/src/data/profile.json"),
-      fetch("/live-cv/src/data/experience.json"),
-      fetch("/live-cv/src/data/education.json"),
-      fetch("/live-cv/src/data/skills.json"),
-      fetch("/live-cv/src/data/personal_statement.md"),
-    ]);
+    // Use dynamic imports to get the data
+    const profileModule = await import("./data/profile.json");
+    const experienceModule = await import("./data/experience.json");
+    const educationModule = await import("./data/education.json");
+    const skillsModule = await import("./data/skills.json");
 
-    profile.value = await profileRes.json();
-    experiences.value = await experienceRes.json();
-    education.value = await educationRes.json();
-    skills.value = await skillsRes.json();
-    personalStatement.value = await personalStatementRes.text();
+    // For Markdown, we use the ?raw suffix to get the raw content
+    const statementModule = await import("./data/personal_statement.md?raw");
+
+    profile.value = profileModule.default;
+    experiences.value = experienceModule.default;
+    education.value = educationModule.default;
+    skills.value = skillsModule.default;
+    personalStatement.value = statementModule.default;
   } catch (error) {
-    console.error("Error fetching CV data:", error);
+    console.error("Error loading CV data:", error);
   } finally {
     isLoading.value = false;
   }
