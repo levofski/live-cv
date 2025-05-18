@@ -1,12 +1,12 @@
 [
   {
     "id": "lendinvest-2022-present",
-    "title": "Lead Backend Engineer (previously Senior)",
+    "title": "Senior -> Lead Backend Engineer",
     "company": "LendInvest Plc",
     "companyDescription": "LendInvest is one of the leading specialist mortgage and bridging lenders in the UK.",
     "period": "01/2022 – Present",
     "location": "London (Remote)",
-    "summary": "Contributed to the full software life cycle of microservices in Symfony, focusing on SOLID principles, architectural improvements, and team mentorship at a leading UK specialist mortgage lender.",
+    "summary": "Contributed to the full software life cycle of API services in Symfony, focusing on SOLID principles, architectural improvements, and team mentorship.",
     "details": [
       "As part of an agile team, completed full software life cycle, and maintained several microservices in Symfony 5.4 & 6.4.",
       "Responsible for code reviews, focusing on SOLID principles.",
@@ -67,7 +67,7 @@
   },
   {
     "id": "strategies-group-2012-2022",
-    "title": "Lead PHP Developer (previously Senior)",
+    "title": "Senior -> Lead PHP Developer",
     "company": "The Strategies Group Ltd",
     "companyDescription": "Strategies provide Job Board software and offer bespoke PHP solutions.",
     "period": "07/2012 – 01/2022",
@@ -86,32 +86,32 @@
   },
   {
     "id": "screenpages-2010-2012",
-    "title": "Senior PHP Developer, Magento E-Commerce Platform",
+    "title": "Senior PHP/Magento Developer",
     "company": "Screenpages Ltd",
     "companyDescription": "Screenpages Ltd was an e-commerce agency.",
     "period": "03/2010 – 07/2012",
     "location": "Wisley",
-    "summary": "Senior PHP Developer working on the Magento E-Commerce Platform.",
+    "summary": "Senior PHP/Magento Developer working on E-Commerce Websites.",
     "details": []
   },
   {
     "id": "freeads-2009-2010",
-    "title": "Programmer, Freeads.co.uk website",
+    "title": "Web Developer",
     "company": "Freeads Classifieds Ltd",
     "companyDescription": "Freeads Classifieds Ltd runs a popular classifieds website.",
     "period": "04/2009 – 03/2010",
     "location": "Camberley",
-    "summary": "Programmer for the Freeads.co.uk classifieds website.",
+    "summary": "Web Developer for the Freeads classifieds website.",
     "details": []
   },
   {
     "id": "office-shadow-2005-2009",
-    "title": "Programmer / Software Architect, Shadow-Planner Business Continuity Suite",
+    "title": "PHP Developer / Software Architect",
     "company": "Office-Shadow Ltd",
     "companyDescription": "Office-Shadow Ltd developed business continuity software.",
     "period": "08/2005 – 02/2009",
     "location": "Sidlow",
-    "summary": "Programmer and Software Architect for the Shadow-Planner Business Continuity Suite.",
+    "summary": "PHP Developer and Software Architect for the Shadow-Planner Business Continuity Suite.",
     "details": []
   }
 ]
