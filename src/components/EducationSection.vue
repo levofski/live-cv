@@ -24,9 +24,7 @@ const hasExpandableContent = (eduItem) => {
 
 <template>
   <section>
-    <h2 class="text-3xl font-semibold text-gray-700 mb-6 border-b pb-3">
-      Education
-    </h2>
+    <h2 class="text-3xl font-semibold text-gray-700 mb-6 pb-3">Education</h2>
     <div class="space-y-8">
       <div
         v-for="edu in education"
