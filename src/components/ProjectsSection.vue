@@ -26,14 +26,12 @@ function getTechColor(index) {
 
 <template>
   <section>
-    <h2 class="text-3xl font-semibold text-gray-700 mb-6">
-      Personal Projects
-    </h2>
+    <h2 class="text-3xl font-semibold text-gray-700 mb-6">Personal Projects</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div
         v-for="project in projects"
         :key="project.id"
-        class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out"
+        class="bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300 overflow-hidden"
       >
         <img
           v-if="project.imageUrl"
@@ -60,9 +58,9 @@ function getTechColor(index) {
             {{ project.summary }}
           </p>
 
-          <div 
+          <div
             v-if="project.details && project.details.length"
-            @click="toggleExpand(project.id)" 
+            @click="toggleExpand(project.id)"
             class="flex justify-center cursor-pointer mb-4"
           >
             <svg
