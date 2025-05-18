@@ -15,12 +15,12 @@ const renderedMarkdown = computed(() => {
 <template>
   <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-semibold text-gray-800 mb-8 text-center">
+      <h2 class="text-3xl font-semibold text-gray-800 text-center">
         Personal Interests & Activities
       </h2>
       <div
         v-if="renderedMarkdown"
-        class="prose prose-lg max-w-none text-gray-700 leading-relaxed bg-white p-8 rounded-lg shadow-md"
+        class="prose prose-lg max-w-none text-gray-700 leading-relaxed bg-white p-8 rounded-lg"
         v-html="renderedMarkdown"
       ></div>
       <div v-else class="text-center text-gray-500">
