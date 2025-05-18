@@ -35,16 +35,20 @@ const hasExpandableContent = (eduItem) => {
           @click="hasExpandableContent(edu) && toggleExpand(edu.id)"
           :class="{ 'cursor-pointer': hasExpandableContent(edu) }"
         >
-          <div class="flex justify-between items-start mb-1">
-            <h3 class="text-xl font-semibold text-blue-600">
-              {{ edu.degree }}
-            </h3>
-            <span class="text-sm text-gray-500">{{ edu.period }}</span>
+          <div class="flex justify-between items-start mb-2">
+            <div class="pr-4">
+              <h3 class="text-xl font-semibold text-blue-600 leading-tight text-left">
+                {{ edu.degree }}
+              </h3>
+            </div>
+            <span class="text-sm text-gray-500 whitespace-nowrap flex-shrink-0 text-right">
+              {{ edu.period }}
+            </span>
           </div>
-          <div class="flex items-center space-x-4 text-sm text-gray-500 mb-2">
+          <div class="flex items-center text-sm text-gray-500 mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4 text-gray-400"
+              class="h-4 w-4 text-gray-400 mr-1 flex-shrink-0"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -54,8 +58,10 @@ const hasExpandableContent = (eduItem) => {
                 clip-rule="evenodd"
               />
             </svg>
-            <span v-if="edu.location">{{ edu.location }} - </span>
-            <span>{{ edu.institution }}</span>
+            <span class="leading-tight"
+              >{{ edu.location ? `${edu.location} - ` : ""
+              }}{{ edu.institution }}</span
+            >
           </div>
           <div
             v-if="hasExpandableContent(edu)"
