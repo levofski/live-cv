@@ -54,7 +54,7 @@ function getTechColor(index) {
               {{ tech }}
             </span>
           </div>
-          <p class="text-gray-600 leading-relaxed mb-4 h-20 overflow-y-auto">
+          <p class="text-gray-600 leading-relaxed mb-4 min-h-[5rem] max-h-20 overflow-y-auto">
             {{ project.summary }}
           </p>
 
@@ -114,27 +114,20 @@ function getTechColor(index) {
               opacity: 0,
               y: -20,
               height: 0,
-              transition: { duration: 200 },
+              transition: {
+                type: 'spring',
+                stiffness: 250,
+                damping: 25,
+                mass: 0.5,
+              },
             }"
-            class="project-details-wrapper overflow-hidden"
+            class="project-details-wrapper mt-4 pt-4 border-t border-gray-200 overflow-hidden"
           >
-            <ul class="space-y-2 text-sm text-gray-600">
+            <ul class="space-y-2 text-sm text-gray-600 text-left">
               <li
                 v-for="(detail, dIndex) in project.details"
                 :key="dIndex"
                 class="flex items-start"
-                v-motion
-                :initial="{ opacity: 0, x: -20 }"
-                :enter="{
-                  opacity: 1,
-                  x: 0,
-                  transition: {
-                    delay: dIndex * 100,
-                    type: 'spring',
-                    stiffness: 300,
-                    damping: 20,
-                  },
-                }"
               >
                 <svg
                   class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
