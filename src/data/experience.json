@@ -17,8 +17,27 @@
       "Heavily contributed to discovery and specification of projects.",
       "Pioneered and experimented in AI.",
       "Interviewed and tested prospective engineers and DevOps.",
-      "Liaised with PHP London organisers to host the meetup in LendInvest offices.",
-      "Skills Used: Object Oriented Programming in PHP, Symfony 5.4, 6.4 and some NodeJS and Golang; TDD/BDD and automated testing with PHPUnit, Behat, Jest and Gotest; Domain Driven Design & Microservices Architecture patterns; Lean/Agile methodologies; Some crossover into DevOps, using Docker, Kubernetes, Kind, AWS; Made use of AI and Agent coding where appropriate."
+      "Liaised with PHP London organisers to host the meetup in LendInvest offices."
+    ],
+    "skillsUsed": [
+      "PHP (OOP)",
+      "Symfony",
+      "NodeJS",
+      "Golang",
+      "TDD/BDD",
+      "PHPUnit",
+      "Behat",
+      "Jest",
+      "Gotest",
+      "Domain Driven Design",
+      "Microservices Architecture",
+      "Lean/Agile",
+      "DevOps",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "AI",
+      "Agent Coding"
     ],
     "projects": [
       {
@@ -80,9 +99,23 @@
       "Championed reusable code and migrating existing code into a reusable form.",
       "Introduced automated testing into selected projects.",
       "Mentored other developers.",
-      "Interviewed and tested prospective Developers.",
-      "Skills Used: Object Oriented Programming in PHP, Zend Framework 1 & 2, and Symfony 5; Web Development in HTML, JavaScript, Angular 5, CSS, LESS and Bootstrap; Database/Search index administration in MySQL, MongoDB and ElasticSearch."
-    ]
+      "Interviewed and tested prospective Developers."
+    ],
+    "skillsUsed": [
+      "PHP (OOP)",
+      "Zend Framework",
+      "Symfony 5",
+      "HTML",
+      "JavaScript",
+      "Angular 5",
+      "CSS",
+      "LESS",
+      "Bootstrap",
+      "MySQL",
+      "MongoDB",
+      "ElasticSearch"
+    ],
+    "projects": []
   },
   {
     "id": "screenpages-2010-2012",
@@ -92,7 +125,9 @@
     "period": "03/2010 – 07/2012",
     "location": "Wisley",
     "summary": "Senior PHP/Magento Developer working on E-Commerce Websites.",
-    "details": []
+    "details": [],
+    "skillsUsed": [],
+    "projects": []
   },
   {
     "id": "freeads-2009-2010",
@@ -102,7 +137,9 @@
     "period": "04/2009 – 03/2010",
     "location": "Camberley",
     "summary": "Web Developer for the Freeads classifieds website.",
-    "details": []
+    "details": [],
+    "skillsUsed": [],
+    "projects": []
   },
   {
     "id": "office-shadow-2005-2009",
@@ -112,6 +149,8 @@
     "period": "08/2005 – 02/2009",
     "location": "Sidlow",
     "summary": "PHP Developer and Software Architect for the Shadow-Planner Business Continuity Suite.",
-    "details": []
+    "details": [],
+    "skillsUsed": [],
+    "projects": []
   }
 ]

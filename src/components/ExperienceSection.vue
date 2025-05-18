@@ -156,6 +156,24 @@ const hasExpandableContent = (expItem) => {
           </ul>
 
           <div
+            v-if="exp.skillsUsed && exp.skillsUsed.length"
+            class="mt-4 pt-4 border-t border-dashed border-gray-200"
+          >
+            <h4 class="text-md font-semibold text-gray-700 mb-2">
+              Skills Used:
+            </h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="skill in exp.skillsUsed"
+                :key="skill"
+                class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+              >
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <div
             v-if="exp.projects && exp.projects.length"
             class="mt-6 pt-6 border-t-2 border-gray-200"
           >
