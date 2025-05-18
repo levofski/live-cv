@@ -35,21 +35,16 @@ const hasExpandableContent = (expItem) => {
           :class="{ 'cursor-pointer': hasExpandableContent(exp) }"
         >
           <div class="flex justify-between items-start mb-1">
-            <div>
-              <h3 class="text-xl font-semibold text-blue-600">
-                {{ exp.title }}
-              </h3>
-              <h4 class="text-lg text-gray-600">
-                {{ exp.company }}
-              </h4>
-            </div>
+            <h3 class="text-xl font-semibold text-blue-600">
+              {{ exp.title }}
+            </h3>
             <div class="flex items-center">
               <span class="text-sm text-gray-500 mr-2">{{ exp.period }}</span>
-              <div v-if="hasExpandableContent(exp)">
+              <div v-if="hasExpandableContent(exp)" class="text-gray-500">
                 <svg
                   v-if="!expanded[exp.id]"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-gray-500"
+                  class="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -64,7 +59,7 @@ const hasExpandableContent = (expItem) => {
                 <svg
                   v-else
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-gray-500"
+                  class="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -79,21 +74,26 @@ const hasExpandableContent = (expItem) => {
               </div>
             </div>
           </div>
-          <div class="flex items-center space-x-4 text-sm text-gray-500 mb-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4 text-gray-400"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <span>{{ exp.location }}</span>
+
+          <div class="flex justify-between items-start mb-2">
+            <h4 class="text-lg text-gray-600 text-left">{{ exp.company }}</h4>
+            <div class="flex items-center space-x-1 text-sm text-gray-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 text-gray-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>{{ exp.location }}</span>
+            </div>
           </div>
+
           <p
             v-if="exp.companyDescription"
             class="text-sm text-gray-500 italic mb-3"
