@@ -1,4 +1,4 @@
-_#_ A Lead/Principal Software Engineer with 22 years experience, always looking to further expand his skills and knowledge.
+_#_ A Lead/Principal Software Engineer with over 20 years experience, always looking to further expand his skills and knowledge.
 
 _#_ Reliable, trustworthy, versatile and hardworking, with the ability to work either independently or as part of a team.
 
