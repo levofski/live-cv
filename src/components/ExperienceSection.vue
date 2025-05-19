@@ -22,32 +22,40 @@ const hasExpandableContent = (expItem) => {
 
 <template>
   <section>
-    <h2 class="text-3xl font-semibold text-gray-700 mb-6 pb-3">
+    <h2
+      class="text-3xl font-semibold text-gray-700 dark:text-gray-200 mb-6 pb-3"
+    >
       Work Experience
     </h2>
     <div class="space-y-8">
       <div
         v-for="exp in experiences"
         :key="exp.id"
-        class="p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300"
+        class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300"
       >
         <div
           @click="hasExpandableContent(exp) && toggleExpand(exp.id)"
           :class="{ 'cursor-pointer': hasExpandableContent(exp) }"
         >
           <div class="flex justify-between items-start mb-1">
-            <h3 class="text-xl font-semibold text-blue-600">
+            <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">
               {{ exp.title }}
             </h3>
-            <span class="text-sm text-gray-500">{{ exp.period }}</span>
+            <span class="text-sm text-gray-500 dark:text-gray-400">{{
+              exp.period
+            }}</span>
           </div>
 
           <div class="flex justify-between items-start mb-2">
-            <h4 class="text-lg text-gray-600 text-left">{{ exp.company }}</h4>
-            <div class="flex items-center space-x-1 text-sm text-gray-500">
+            <h4 class="text-lg text-gray-600 dark:text-gray-300 text-left">
+              {{ exp.company }}
+            </h4>
+            <div
+              class="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-400"
+                class="h-4 w-4 text-gray-400 dark:text-gray-500"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -63,17 +71,19 @@ const hasExpandableContent = (expItem) => {
 
           <p
             v-if="exp.companyDescription"
-            class="text-sm text-gray-500 italic mb-3"
+            class="text-sm text-gray-500 dark:text-gray-400 italic mb-3"
           >
             {{ exp.companyDescription }}
           </p>
-          <p class="text-gray-600 leading-relaxed mb-3">{{ exp.summary }}</p>
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+            {{ exp.summary }}
+          </p>
 
           <div
             v-if="hasExpandableContent(exp)"
             class="flex justify-center mt-4"
           >
-            <div class="text-gray-500">
+            <div class="text-gray-500 dark:text-gray-400">
               <svg
                 v-if="!expanded[exp.id]"
                 xmlns="http://www.w3.org/2000/svg"
@@ -133,16 +143,16 @@ const hasExpandableContent = (expItem) => {
               mass: 0.5,
             },
           }"
-          class="mt-4 pt-4 border-t border-gray-200 overflow-hidden"
+          class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 overflow-hidden"
         >
           <ul v-if="exp.details && exp.details.length" class="space-y-2 mb-6">
             <li
               v-for="(detail, index) in exp.details"
               :key="index"
-              class="flex items-start text-gray-600 text-left"
+              class="flex items-start text-gray-600 dark:text-gray-300 text-left"
             >
               <svg
-                class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                class="h-5 w-5 text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0 mt-1"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -154,16 +164,18 @@ const hasExpandableContent = (expItem) => {
 
           <div
             v-if="exp.skillsUsed && exp.skillsUsed.length"
-            class="mt-4 pt-4 border-t border-dashed border-gray-200"
+            class="mt-4 pt-4 border-t border-dashed border-gray-200 dark:border-gray-700"
           >
-            <h4 class="text-md font-semibold text-gray-700 mb-2">
+            <h4
+              class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-2"
+            >
               Skills Used:
             </h4>
             <div class="flex flex-wrap gap-2">
               <span
                 v-for="skill in exp.skillsUsed"
                 :key="skill"
-                class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                class="inline-block bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 text-xs font-semibold px-2.5 py-0.5 rounded-full"
               >
                 {{ skill }}
               </span>
@@ -172,9 +184,11 @@ const hasExpandableContent = (expItem) => {
 
           <div
             v-if="exp.projects && exp.projects.length"
-            class="mt-6 pt-6 border-t-2 border-gray-200"
+            class="mt-6 pt-6 border-t-2 border-gray-200 dark:border-gray-700"
           >
-            <h4 class="text-lg font-semibold text-gray-700 mb-3">
+            <h4
+              class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3"
+            >
               Notable Projects:
             </h4>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -206,5 +220,9 @@ const hasExpandableContent = (expItem) => {
 /* Additional styling for a more polished look */
 .text-blue-600 {
   color: #2563eb; /* Tailwind's blue-600 */
+}
+
+.dark .text-blue-600 {
+  color: #3b82f6; /* Tailwind's blue-500 for dark mode */
 }
 </style>

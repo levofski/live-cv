@@ -201,11 +201,13 @@ const rightColumnItems = computed(() => {
           v-if="item.href"
           :href="item.href"
           target="_blank"
-          class="text-gray-700 hover:text-blue-600"
+          class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
         >
           {{ item.display }}
         </a>
-        <span v-else class="text-gray-700">{{ item.display }}</span>
+        <span v-else class="text-gray-700 dark:text-gray-300">{{
+          item.display
+        }}</span>
       </div>
 
       <!-- Right column items -->
@@ -319,11 +321,13 @@ const rightColumnItems = computed(() => {
           v-if="item.href"
           :href="item.href"
           target="_blank"
-          class="text-gray-700 hover:text-blue-600"
+          class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
         >
           {{ item.display }}
         </a>
-        <span v-else class="text-gray-700">{{ item.display }}</span>
+        <span v-else class="text-gray-700 dark:text-gray-300">{{
+          item.display
+        }}</span>
       </div>
     </div>
   </section>

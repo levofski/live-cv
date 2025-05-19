@@ -19,11 +19,13 @@ const renderedMarkdown = computed(() => {
 
 <template>
   <section>
-    <h2 class="text-3xl font-semibold text-gray-700 mb-6">Personal Projects</h2>
+    <h2 class="text-3xl font-semibold text-gray-700 dark:text-gray-200 mb-6">
+      Personal Projects
+    </h2>
     <!-- Added markdown display div -->
     <div
       v-if="renderedMarkdown"
-      class="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-8 text-left"
+      class="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 leading-relaxed mb-8 text-left"
       v-html="renderedMarkdown"
     ></div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -39,6 +41,10 @@ const renderedMarkdown = computed(() => {
 <style scoped>
 .text-blue-600 {
   color: #2563eb; /* Tailwind's blue-600 */
+}
+
+.dark .text-blue-600 {
+  color: #3b82f6; /* Tailwind's blue-500 for dark mode */
 }
 
 .button {

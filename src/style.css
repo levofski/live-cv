@@ -28,6 +28,12 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #121212;
+  color: #e5e7eb;
 }
 
 a {
@@ -41,6 +47,13 @@ a:hover {
   text-decoration: underline;
 }
 
+.dark a {
+  color: #3b82f6; /* Lighter blue for dark mode */
+}
+.dark a:hover {
+  color: #60a5fa;
+}
+
 h1,
 h2,
 h3,
@@ -49,10 +62,21 @@ h5,
 h6 {
   color: #2c3e50; /* Dark blue-gray for headings */
   font-weight: 600; /* Slightly bolder headings */
+  transition: color 0.3s ease;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #e5e7eb; /* Light text for headings in dark mode */
 }
 
 button {
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out,
+    color 0.3s ease;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 500;
@@ -63,6 +87,7 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  color: white;
 }
 button:hover {
   border-color: #646cff;
@@ -74,6 +99,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.dark button {
+  background-color: #2d3748;
+  color: #e5e7eb;
+}
+.dark button:hover {
+  background-color: #4a5568;
+  border-color: #60a5fa;
+}
+
 /* Card base style */
 .cv-section {
   background-color: #ffffff;
@@ -81,12 +115,22 @@ button:focus-visible {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05); /* Softer shadow */
   padding: 2rem; /* More padding */
   margin-bottom: 2rem;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
+    background-color 0.3s ease;
 }
 
 .cv-section:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); /* Enhanced shadow on hover */
+}
+
+.dark .cv-section {
+  background-color: #2d3748;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dark .cv-section:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 .card {

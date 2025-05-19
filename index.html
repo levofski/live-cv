@@ -10,6 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Live CV</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              // Define custom colors if needed
+            },
+          },
+        },
+      };
+    </script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +34,11 @@
       body {
         font-family: "Inter", sans-serif;
         background-color: #f4f7f6;
+        transition: background-color 0.3s ease;
+      }
+      .dark body {
+        background-color: #1a1a1a;
+        color: #e5e7eb;
       }
       #app {
         opacity: 0;

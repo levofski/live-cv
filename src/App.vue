@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
+import { useDark, useToggle } from "@vueuse/core";
 import ProfileCard from "./components/ProfileCard.vue";
 import ExperienceSection from "./components/ExperienceSection.vue";
 import EducationSection from "./components/EducationSection.vue";
@@ -7,6 +8,15 @@ import SkillsSection from "./components/SkillsSection.vue";
 import PersonalStatement from "./components/PersonalStatement.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
 import InterestsSection from "./components/InterestsSection.vue"; // Add this line
+
+// Setup dark mode
+const isDark = useDark({
+  selector: "html",
+  attribute: "class",
+  valueDark: "dark",
+  valueLight: "",
+});
+const toggleDark = useToggle(isDark);
 
 const profile = ref({});
 const experiences = ref([]);
@@ -76,11 +86,11 @@ function downloadPdf() {
 <template>
   <div
     id="app-container"
-    class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 antialiased"
+    class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 antialiased transition-colors duration-300"
   >
     <div v-if="isLoading" class="flex justify-center items-center min-h-screen">
       <div
-        class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"
+        class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500 dark:border-blue-400"
       ></div>
     </div>
 
@@ -89,16 +99,59 @@ function downloadPdf() {
         class="text-center pt-8 pb-12 fade-in-up"
         style="animation-delay: 0.1s"
       >
+        <div class="absolute top-4 right-4 sm:top-6 sm:right-8">
+          <button
+            @click="toggleDark()"
+            class="p-2 rounded-full transition-colors"
+            :class="
+              isDark
+                ? 'bg-gray-700 text-yellow-300'
+                : 'bg-yellow-100 text-gray-800'
+            "
+            aria-label="Toggle dark mode"
+          >
+            <svg
+              v-if="isDark"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+            <svg
+              v-else
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </button>
+        </div>
         <img
           v-if="profile.avatarUrl"
           :src="profile.avatarUrl"
           alt="Profile Picture"
           class="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg"
         />
-        <h1 class="text-5xl font-bold text-gray-800 mb-2">
+        <h1 class="text-5xl font-bold mb-2 text-gray-800 dark:text-gray-100">
           {{ profile.name }}
         </h1>
-        <p class="text-2xl text-blue-600 font-light">
+        <p class="text-2xl text-blue-600 dark:text-blue-400 font-light">
           {{ profile.title }}
         </p>
       </header>
@@ -143,14 +196,17 @@ function downloadPdf() {
       </main>
 
       <footer
-        class="text-center mt-16 py-8 border-t border-gray-200 fade-in-up"
+        class="text-center mt-16 py-8 border-t border-gray-200 dark:border-gray-700 fade-in-up"
         style="animation-delay: 1.9s"
       >
-        <p class="text-gray-500">
+        <p class="text-gray-500 dark:text-gray-400">
           &copy; {{ new Date().getFullYear() }} {{ profile.name }}. All rights
           reserved.
         </p>
-        <button @click="downloadPdf" class="button button-primary mt-6">
+        <button
+          @click="downloadPdf"
+          class="button button-primary mt-6 dark:bg-gray-800 dark:text-gray-200"
+        >
           Download PDF CV
         </button>
       </footer>

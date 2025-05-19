@@ -12,7 +12,7 @@ function toggleExpand() {
 }
 
 function getTechColor(index) {
-  const colors = [
+  const lightColors = [
     "bg-blue-100 text-blue-800",
     "bg-green-100 text-green-800",
     "bg-yellow-100 text-yellow-800",
@@ -20,13 +20,25 @@ function getTechColor(index) {
     "bg-pink-100 text-pink-800",
     "bg-indigo-100 text-indigo-800",
   ];
-  return colors[index % colors.length];
+
+  const darkColors = [
+    "dark:bg-blue-900 dark:text-blue-200",
+    "dark:bg-green-900 dark:text-green-200",
+    "dark:bg-yellow-900 dark:text-yellow-200",
+    "dark:bg-purple-900 dark:text-purple-200",
+    "dark:bg-pink-900 dark:text-pink-200",
+    "dark:bg-indigo-900 dark:text-indigo-200",
+  ];
+
+  return `${lightColors[index % lightColors.length]} ${
+    darkColors[index % darkColors.length]
+  }`;
 }
 </script>
 
 <template>
   <div
-    class="bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300 overflow-hidden"
+    class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300 overflow-hidden"
   >
     <img
       v-if="project.imageUrl"
@@ -35,10 +47,13 @@ function getTechColor(index) {
       class="w-full h-48 object-cover"
     />
     <div class="p-6">
-      <h3 class="text-2xl font-semibold text-gray-800 mb-2">
+      <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
         {{ project.name }}
       </h3>
-      <p v-if="project.period" class="text-sm text-gray-500 mb-3">
+      <p
+        v-if="project.period"
+        class="text-sm text-gray-500 dark:text-gray-400 mb-3"
+      >
         {{ project.period }}
       </p>
       <div class="mb-4 flex flex-wrap gap-2">
@@ -53,11 +68,14 @@ function getTechColor(index) {
       </div>
       <p
         v-if="project.summary"
-        class="text-gray-600 leading-relaxed mb-4 max-h-20 overflow-y-auto"
+        class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4 max-h-20 overflow-y-auto"
       >
         {{ project.summary }}
       </p>
-      <p v-if="project.description" class="text-sm text-gray-700 mt-1 mb-2">
+      <p
+        v-if="project.description"
+        class="text-sm text-gray-700 dark:text-gray-400 mt-1 mb-2"
+      >
         {{ project.description }}
       </p>
 
@@ -69,7 +87,7 @@ function getTechColor(index) {
         <svg
           v-if="!expanded"
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-gray-500"
+          class="h-6 w-6 text-gray-500 dark:text-gray-400"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -84,7 +102,7 @@ function getTechColor(index) {
         <svg
           v-else
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-gray-500"
+          class="h-6 w-6 text-gray-500 dark:text-gray-400"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -124,16 +142,18 @@ function getTechColor(index) {
             mass: 0.5,
           },
         }"
-        class="project-details-wrapper pt-4 pb-4 border-gray-200 overflow-hidden"
+        class="project-details-wrapper pt-4 pb-4 border-t border-gray-200 dark:border-gray-700 overflow-hidden"
       >
-        <ul class="space-y-2 text-sm text-gray-600 text-left pl-0">
+        <ul
+          class="space-y-2 text-sm text-gray-600 dark:text-gray-300 text-left pl-0"
+        >
           <li
             v-for="(detail, dIndex) in project.details"
             :key="dIndex"
             class="flex items-start"
           >
             <svg
-              class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+              class="h-5 w-5 text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0 mt-1"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -149,14 +169,14 @@ function getTechColor(index) {
           v-if="project.liveUrl && project.liveUrl !== '#'"
           :href="project.liveUrl"
           target="_blank"
-          class="button button-primary text-sm py-2 px-4"
+          class="button button-primary text-sm py-2 px-4 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100"
           >Live URL</a
         >
         <a
           v-if="project.sourceUrl"
           :href="project.sourceUrl"
           target="_blank"
-          class="button button-outline text-sm py-2 px-4"
+          class="button button-outline text-sm py-2 px-4 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100"
           >Source Code</a
         >
       </div>
@@ -167,6 +187,10 @@ function getTechColor(index) {
 <style scoped>
 .text-blue-600 {
   color: #2563eb; /* Tailwind's blue-600 */
+}
+
+.dark .text-blue-600 {
+  color: #3b82f6; /* Tailwind's blue-500 for dark mode */
 }
 
 .button {

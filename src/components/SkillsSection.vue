@@ -40,17 +40,17 @@ const skillsByCategory = computed(() => {
 function getSkillLevelAttributes(level) {
   switch (level) {
     case "Expert":
-      return { width: "95%", class: "bg-green-500" }; // Vibrant Green
+      return { width: "95%", class: "bg-green-500 dark:bg-green-600" }; // Vibrant Green
     case "Advanced":
-      return { width: "80%", class: "bg-blue-500" }; // Strong Blue
+      return { width: "80%", class: "bg-blue-500 dark:bg-blue-600" }; // Strong Blue
     case "Proficient":
-      return { width: "65%", class: "bg-yellow-400" }; // Bright Yellow
+      return { width: "65%", class: "bg-yellow-400 dark:bg-yellow-500" }; // Bright Yellow
     case "Intermediate":
-      return { width: "50%", class: "bg-orange-400" }; // Orange
+      return { width: "50%", class: "bg-orange-400 dark:bg-orange-500" }; // Orange
     case "Beginner":
-      return { width: "30%", class: "bg-red-400" }; // Softer Red
+      return { width: "30%", class: "bg-red-400 dark:bg-red-500" }; // Softer Red
     default:
-      return { width: "0%", class: "bg-gray-300" };
+      return { width: "0%", class: "bg-gray-300 dark:bg-gray-600" };
   }
 }
 
@@ -92,15 +92,19 @@ onUnmounted(() => {
 
 <template>
   <section>
-    <h2 class="text-3xl font-semibold text-gray-700 mb-8 border-b pb-3">
+    <h2
+      class="text-3xl font-semibold text-gray-700 dark:text-gray-200 mb-8 border-b dark:border-gray-700 pb-3"
+    >
       Skills
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
       <div class="md:col-span-2">
-        <h3 class="text-xl font-semibold text-gray-700 mb-6 flex items-center">
+        <h3
+          class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-6 flex items-center"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2 text-green-500"
+            class="h-6 w-6 mr-2 text-green-500 dark:text-green-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -118,10 +122,10 @@ onUnmounted(() => {
           <li
             v-for="skill in skills.soft"
             :key="skill"
-            class="flex items-center text-gray-700"
+            class="flex items-center text-gray-700 dark:text-gray-300"
           >
             <svg
-              class="w-5 h-5 text-green-500 mr-3 flex-shrink-0"
+              class="w-5 h-5 text-green-500 dark:text-green-400 mr-3 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -139,10 +143,12 @@ onUnmounted(() => {
         </ul>
       </div>
       <div ref="technicalSkillsContainerRef" class="md:col-span-2">
-        <h3 class="text-xl font-semibold text-gray-700 mb-6 flex items-center">
+        <h3
+          class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-6 flex items-center"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2 text-blue-500"
+            class="h-6 w-6 mr-2 text-blue-500 dark:text-blue-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -162,21 +168,25 @@ onUnmounted(() => {
             :key="category"
             class="mb-8"
           >
-            <h4 class="text-lg font-semibold text-gray-600 mb-4 capitalize">
+            <h4
+              class="text-lg font-semibold text-gray-600 dark:text-gray-400 mb-4 capitalize"
+            >
               {{ category }}
             </h4>
             <div class="space-y-5">
               <div v-for="skill in categorySkills" :key="skill.name" class="">
                 <div class="flex justify-between mb-1">
-                  <span class="text-base font-medium text-gray-700">{{
-                    skill.name
-                  }}</span>
-                  <span class="text-sm font-medium text-blue-600">{{
-                    skill.level
-                  }}</span>
+                  <span
+                    class="text-base font-medium text-gray-700 dark:text-gray-300"
+                    >{{ skill.name }}</span
+                  >
+                  <span
+                    class="text-sm font-medium text-blue-600 dark:text-blue-400"
+                    >{{ skill.level }}</span
+                  >
                 </div>
                 <div
-                  class="w-full bg-gray-200 rounded-full h-3 shadow-inner overflow-hidden"
+                  class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3 shadow-inner overflow-hidden"
                 >
                   <div
                     :class="getSkillLevelAttributes(skill.level).class"

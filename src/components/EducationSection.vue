@@ -24,12 +24,16 @@ const hasExpandableContent = (eduItem) => {
 
 <template>
   <section>
-    <h2 class="text-3xl font-semibold text-gray-700 mb-6 pb-3">Education</h2>
+    <h2
+      class="text-3xl font-semibold text-gray-700 dark:text-gray-200 mb-6 pb-3"
+    >
+      Education
+    </h2>
     <div class="space-y-8">
       <div
         v-for="edu in education"
         :key="edu.id"
-        class="p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300"
+        class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300"
       >
         <div
           @click="hasExpandableContent(edu) && toggleExpand(edu.id)"
@@ -37,18 +41,24 @@ const hasExpandableContent = (eduItem) => {
         >
           <div class="flex justify-between items-start mb-2">
             <div class="pr-4">
-              <h3 class="text-xl font-semibold text-blue-600 leading-tight text-left">
+              <h3
+                class="text-xl font-semibold text-blue-600 dark:text-blue-400 leading-tight text-left"
+              >
                 {{ edu.degree }}
               </h3>
             </div>
-            <span class="text-sm text-gray-500 whitespace-nowrap flex-shrink-0 text-right">
+            <span
+              class="text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap flex-shrink-0 text-right"
+            >
               {{ edu.period }}
             </span>
           </div>
-          <div class="flex items-center text-sm text-gray-500 mb-3">
+          <div
+            class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4 text-gray-400 mr-1 flex-shrink-0"
+              class="h-4 w-4 text-gray-400 dark:text-gray-500 mr-1 flex-shrink-0"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -70,7 +80,7 @@ const hasExpandableContent = (eduItem) => {
             <svg
               v-if="!expanded[edu.id]"
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-gray-500"
+              class="h-6 w-6 text-gray-500 dark:text-gray-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -85,7 +95,7 @@ const hasExpandableContent = (eduItem) => {
             <svg
               v-else
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-gray-500"
+              class="h-6 w-6 text-gray-500 dark:text-gray-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -125,18 +135,22 @@ const hasExpandableContent = (eduItem) => {
               mass: 0.5,
             },
           }"
-          class="mt-4 pt-4 border-t border-gray-200 overflow-hidden text-left"
+          class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 overflow-hidden text-left"
         >
           <div v-if="edu.awards && edu.awards.length" class="mb-3">
-            <h4 class="text-md font-semibold text-gray-700 mb-1">Awards:</h4>
-            <ul class="space-y-1 text-gray-600">
+            <h4
+              class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-1"
+            >
+              Awards:
+            </h4>
+            <ul class="space-y-1 text-gray-600 dark:text-gray-300">
               <li
                 v-for="(award, index) in edu.awards"
                 :key="'award-' + index"
                 class="flex items-start"
               >
                 <svg
-                  class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                  class="h-5 w-5 text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0 mt-1"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -151,17 +165,19 @@ const hasExpandableContent = (eduItem) => {
             v-if="edu.subjectsStudied && edu.subjectsStudied.length"
             class="mb-3"
           >
-            <h4 class="text-md font-semibold text-gray-700 mb-1">
+            <h4
+              class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-1"
+            >
               Subjects Studied:
             </h4>
-            <ul class="space-y-1 text-gray-600">
+            <ul class="space-y-1 text-gray-600 dark:text-gray-300">
               <li
                 v-for="(subject, index) in edu.subjectsStudied"
                 :key="'subject-' + index"
                 class="flex items-start"
               >
                 <svg
-                  class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                  class="h-5 w-5 text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0 mt-1"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -173,22 +189,30 @@ const hasExpandableContent = (eduItem) => {
           </div>
 
           <div v-if="edu.finalYearProject" class="mb-3">
-            <h4 class="text-md font-semibold text-gray-700 mb-1">
+            <h4
+              class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-1"
+            >
               Final Year Project:
             </h4>
-            <p class="text-gray-600">{{ edu.finalYearProject }}</p>
+            <p class="text-gray-600 dark:text-gray-300">
+              {{ edu.finalYearProject }}
+            </p>
           </div>
 
           <div v-if="edu.aLevels && edu.aLevels.length" class="mb-3">
-            <h4 class="text-md font-semibold text-gray-700 mb-1">A-Levels:</h4>
-            <ul class="space-y-1 text-gray-600">
+            <h4
+              class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-1"
+            >
+              A-Levels:
+            </h4>
+            <ul class="space-y-1 text-gray-600 dark:text-gray-300">
               <li
                 v-for="(level, index) in edu.aLevels"
                 :key="'alevel-' + index"
                 class="flex items-start"
               >
                 <svg
-                  class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                  class="h-5 w-5 text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0 mt-1"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -200,15 +224,19 @@ const hasExpandableContent = (eduItem) => {
           </div>
 
           <div v-if="edu.gcses && edu.gcses.length" class="mb-3">
-            <h4 class="text-md font-semibold text-gray-700 mb-1">GCSEs:</h4>
-            <ul class="space-y-1 text-gray-600">
+            <h4
+              class="text-md font-semibold text-gray-700 dark:text-gray-300 mb-1"
+            >
+              GCSEs:
+            </h4>
+            <ul class="space-y-1 text-gray-600 dark:text-gray-300">
               <li
                 v-for="(item, index) in edu.gcses"
                 :key="'gcse-' + index"
                 class="flex items-start"
               >
                 <svg
-                  class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-1"
+                  class="h-5 w-5 text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0 mt-1"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -217,7 +245,7 @@ const hasExpandableContent = (eduItem) => {
                 <span>{{ item.subject }}: {{ item.grade }}</span>
               </li>
             </ul>
-            <p class="text-gray-600 text-sm mt-1">
+            <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">
               (Plus other GCSEs at grade C or above)
             </p>
           </div>
@@ -231,5 +259,8 @@ const hasExpandableContent = (eduItem) => {
 .text-blue-600 {
   color: #2563eb; /* Tailwind's blue-600 */
 }
-/* Add any additional scoped styles if needed */
+
+.dark .text-blue-600 {
+  color: #3b82f6; /* Tailwind's blue-500 for dark mode */
+}
 </style>
