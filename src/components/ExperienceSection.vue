@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, ref, computed } from "vue";
+import ProjectCard from "./ProjectCard.vue"; // Import the new component
 
 defineProps({
   experiences: Array,
@@ -176,35 +177,13 @@ const hasExpandableContent = (expItem) => {
             <h4 class="text-lg font-semibold text-gray-700 mb-3">
               Notable Projects:
             </h4>
-            <ul class="space-y-3">
-              <li
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <ProjectCard
                 v-for="project in exp.projects"
                 :key="project.id"
-                class="text-gray-600 bg-gray-50 p-3 rounded-md shadow-sm"
-              >
-                <strong class="font-semibold text-blue-600">{{
-                  project.name
-                }}</strong>
-                <p class="text-sm text-gray-700 mt-1 mb-2">
-                  {{ project.description }}
-                </p>
-                <div
-                  v-if="project.technologies && project.technologies.length"
-                  class="mt-2"
-                >
-                  <span class="text-xs font-medium text-gray-500 mr-2"
-                    >Technologies:</span
-                  >
-                  <span
-                    v-for="tech in project.technologies"
-                    :key="tech"
-                    class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
-                  >
-                    {{ tech }}
-                  </span>
-                </div>
-              </li>
-            </ul>
+                :project="project"
+              />
+            </div>
           </div>
         </div>
       </div>
