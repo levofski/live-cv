@@ -9,14 +9,19 @@ import PersonalStatement from "./components/PersonalStatement.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
 import InterestsSection from "./components/InterestsSection.vue"; // Add this line
 
-// Setup dark mode
+// Setup dark mode with default set to light mode
 const isDark = useDark({
   selector: "html",
   attribute: "class",
   valueDark: "dark",
   valueLight: "",
+  initialValue: "light", // Force light mode as default
+  storageKey: "live-cv-color-scheme", // Custom storage key
 });
 const toggleDark = useToggle(isDark);
+
+// Ensure we start with light mode
+isDark.value = false;
 
 const profile = ref({});
 const experiences = ref([]);
