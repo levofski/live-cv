@@ -55,9 +55,11 @@ watch(
   (newProfile) => {
     if (newProfile && newProfile.name) {
       document.title = `Live CV - ${newProfile.name}`;
+    } else {
+      document.title = "Live CV"; // Set a default title if name is not yet available
     }
   },
-  { immediate: true }
+  { immediate: true, deep: true } // Added deep: true for nested properties
 );
 
 onMounted(() => {
