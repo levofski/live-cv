@@ -126,7 +126,7 @@ function getTechColor(index) {
         }"
         class="project-details-wrapper pt-4 pb-4 border-gray-200 overflow-hidden"
       >
-        <ul class="space-y-2 text-sm text-gray-600 text-left">
+        <ul class="space-y-2 text-sm text-gray-600 text-left pl-0">
           <li
             v-for="(detail, dIndex) in project.details"
             :key="dIndex"
