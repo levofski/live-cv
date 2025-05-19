@@ -107,7 +107,7 @@ function downloadPdf() {
         <div class="absolute top-4 right-4 sm:top-6 sm:right-8">
           <button
             @click="toggleDark()"
-            class="p-2 rounded-full transition-colors"
+            class="p-2 rounded-full transition-colors relative group"
             :class="
               isDark
                 ? 'bg-gray-700 text-yellow-300'
@@ -115,6 +115,8 @@ function downloadPdf() {
             "
             aria-label="Toggle dark mode"
           >
+            <!-- Custom tooltip that appears on hover -->
+            <span class="tooltip-text">{{ isDark ? 'Switch to light mode' : 'Switch to dark mode' }}</span>
             <svg
               v-if="isDark"
               xmlns="http://www.w3.org/2000/svg"
@@ -240,5 +242,52 @@ function downloadPdf() {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Tooltip styling */
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  transform: translateX(-50%);
+  opacity: 0;
+  background-color: #1f2937; /* gray-800 */
+  color: white;
+  font-size: 0.75rem; /* text-xs */
+  border-radius: 0.25rem; /* rounded */
+  padding: 0.25rem 0.5rem; /* py-1 px-2 */
+  white-space: nowrap;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: 8px;
+  transition: opacity 0.3s;
+  z-index: 10;
+  pointer-events: none; /* Ensures tooltip doesn't interfere with button clicks */
+}
+
+/* Arrow for tooltip */
+.tooltip-text::after {
+  position: absolute;
+  content: "";
+  border: 4px solid transparent;
+  border-top-color: #1f2937; /* gray-800 */
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+}
+
+/* Show tooltip on hover */
+.group:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Dark mode tooltip */
+.dark .tooltip-text {
+  background-color: #f3f4f6; /* gray-100 */
+  color: #1f2937; /* gray-800 */
+}
+
+.dark .tooltip-text::after {
+  border-top-color: #f3f4f6; /* gray-100 */
 }
 </style>
