@@ -43,44 +43,56 @@
       {
         "id": "lendinvest-project-dev-stack",
         "name": "Dev Stack",
-        "description": "Improvements to the development stack.",
-        "technologies": []
+        "description": "Improvements to the development stack, so that services can interact.",
+        "technologies": ["Docker Compose", "GNU Make"],
+        "details": [
+          "Improved the Docker Networking to allow local services to share DB and RabbitMQ",
+          "Used a shared Makefile to allow developers to run commands across all services"
+        ]
       },
       {
         "id": "lendinvest-project-datadog",
         "name": "Datadog integration",
-        "description": "Integration with Datadog for monitoring.",
-        "technologies": []
-      },
-      {
-        "id": "lendinvest-project-mysql-upgrade",
-        "name": "MySQL 8 upgrade",
-        "description": "Upgrade of MySQL database to version 8.",
-        "technologies": []
+        "description": "Integration with Datadog for monitoring and logging.",
+        "technologies": ["Docker", "PHP", "NodeJS"],
+        "details": [
+          "Integrated Datadog APM into PHP and NodeJS services",
+          "Set up custom dashboards for monitoring"
+        ]
       },
       {
         "id": "lendinvest-project-ai-affordability",
         "name": "AI Generated Affordability Summary",
-        "description": "AI-powered generation of affordability summaries.",
-        "technologies": ["AI"]
+        "description": "AI-powered generation of affordability summaries for Product Search.",
+        "technologies": ["AI", "Golang"],
+        "details": [
+          "A Golang microservice to extract and summarise affordability summaries using AI"
+        ]
       },
       {
         "id": "lendinvest-project-ai-rationale",
         "name": "AI Generated Underwriter Rationale",
         "description": "AI-powered generation of underwriter rationale.",
-        "technologies": ["AI"]
+        "technologies": ["AI", "Golang"],
+        "details": [
+          "A Golang microservice to generate and iterate underwriter rationale using AI"
+        ]
       },
       {
         "id": "lendinvest-project-security-dashboard",
         "name": "Security Dashboard (Agent Coded)",
         "description": "Development of a security dashboard using agent coding.",
-        "technologies": ["Agent Coding"]
+        "technologies": ["Agent Coding", "Golang", "ReactJS"],
+        "details": [
+          "Developed a security dashboard using agent coding techniques.",
+          "Security Advisories are pulled from Github Dependabot and displayed in a ReactJS frontend."
+        ]
       },
       {
         "id": "lendinvest-project-data-engineering",
         "name": "Cross-skilled to cover Data Engineering",
         "description": "Expanded skillset to include data engineering tasks.",
-        "technologies": ["Data Engineering"]
+        "technologies": ["Python", "Terraform", "Kafka"]
       }
     ]
   },

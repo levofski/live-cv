@@ -14,6 +14,7 @@
     ],
     "details": [
       "Used Github Copilot Agent in VSCode to generate code",
+      "Used Dev Containers to allow the Agent to work in safety",
       "Used Context 7 MCP to provide documentation context"
     ],
     "liveUrl": "https://levofski.github.io/live-cv/",
@@ -27,6 +28,7 @@
     "technologies": ["Golang", "Agent Coding", "MCP"],
     "details": [
       "Used Github Copilot Agent in VSCode to generate code",
+      "Used Dev Containers to allow the Agent to work in safety",
       "Used Context 7 MCP to provide documentation context"
     ],
     "sourceUrl": "https://github.com/levofski/mtg-experiment"
